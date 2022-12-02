@@ -1,0 +1,199 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://localhost:4000/</id>
+  <title>Eturnip.com</title>
+  <subtitle>A minimal, responsive, and powerful Jekyll theme for presenting professional writing.</subtitle>
+  <updated>2022-12-01T16:56:02-07:00</updated>
+  <author>
+    <name>Owen McManus</name>
+    <uri>http://localhost:4000/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="http://localhost:4000/"/>
+  <generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator>
+  <rights> © 2022 Owen McManus </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>526</title>
+    <link href="http://localhost:4000/posts/526/" rel="alternate" type="text/html" title="526" />
+    <published>2022-11-28T00:00:00-07:00</published>
+  
+    <updated>2022-11-28T00:00:00-07:00</updated>
+  
+    <id>http://localhost:4000/posts/526/</id>
+    <content src="http://localhost:4000/posts/526/" />
+    <author>
+      <name>Owen McManus</name>
+    </author>
+
+  
+    
+    <category term="Blog" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+				
+				It won’t happen right away, but sometime soon, this blog will change. I’ve been undertaking the slow process of moving it to a new home for a while. It will look different, because, well, everything needs a change sometime. It will work in a slightly different way. If anyone is subscribed through rss I will try to make it seamless, or at least provide some forewarning before everythin...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>525</title>
+    <link href="http://localhost:4000/posts/525/" rel="alternate" type="text/html" title="525" />
+    <published>2022-11-21T00:00:00-07:00</published>
+  
+    <updated>2022-11-21T00:00:00-07:00</updated>
+  
+    <id>http://localhost:4000/posts/525/</id>
+    <content src="http://localhost:4000/posts/525/" />
+    <author>
+      <name>Owen McManus</name>
+    </author>
+
+  
+    
+    <category term="Blog" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+				One of the benefits of having a massive library of classic arcade roms literally at my fingertips, is the art. Each of these games, thanks to all the people who preserve these sorts of things, has associated screenshots, flyers, cabinet art, and marques.It is pretty common for me to go through the game collection just to look at the different marque art.I was thinking about it, and arcades...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>524</title>
+    <link href="http://localhost:4000/posts/524/" rel="alternate" type="text/html" title="524" />
+    <published>2022-11-14T00:00:00-07:00</published>
+  
+    <updated>2022-11-14T00:00:00-07:00</updated>
+  
+    <id>http://localhost:4000/posts/524/</id>
+    <content src="http://localhost:4000/posts/524/" />
+    <author>
+      <name>Owen McManus</name>
+    </author>
+
+  
+    
+    <category term="Blog" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+				Best Games - WarlordsDo you like pong? Yeah, that two player tennis type game that you play by twisting a knob.Do you like Breakout? Yeah, that single player pong type game where you systematically smash a wall using a paddle and ball.Did you have more than one other friend?&amp;nbsp;Warlords is what you get if you combine all of those things. It&amp;rsquo;s pong, it&amp;rsquo;s breakout, it&amp;rsquo;s f...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>523</title>
+    <link href="http://localhost:4000/posts/523/" rel="alternate" type="text/html" title="523" />
+    <published>2022-11-07T00:00:00-07:00</published>
+  
+    <updated>2022-11-07T00:00:00-07:00</updated>
+  
+    <id>http://localhost:4000/posts/523/</id>
+    <content src="http://localhost:4000/posts/523/" />
+    <author>
+      <name>Owen McManus</name>
+    </author>
+
+  
+    
+    <category term="Blog" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+				I&amp;rsquo;ve got a few stories out for consideration at different outlets right now. They keep getting to the second or even third read stage before getting rejected. Most of the story review process is pretty opaque to writers submitting stories, and I think that is something that could definitely change with better metrics and tools, but the Submission Grinder gives you a pretty good idea ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>522</title>
+    <link href="http://localhost:4000/posts/522/" rel="alternate" type="text/html" title="522" />
+    <published>2022-10-31T01:00:00-06:00</published>
+  
+    <updated>2022-10-31T01:00:00-06:00</updated>
+  
+    <id>http://localhost:4000/posts/522/</id>
+    <content src="http://localhost:4000/posts/522/" />
+    <author>
+      <name>Owen McManus</name>
+    </author>
+
+  
+    
+    <category term="Blog" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+				Best Games - Pang (or Pomping World or Buster Bros.)The early 80s were a time of wild experimentation for computer and arcade games. Game ideas would come from clever bits of code that someone managed to write in their bedroom more often than any sort of high level concept. If someone figured out how to create a smooth scrolling background, they turned that into a game. Figured out how to ...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
+

@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="190﻿" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="Best Games - Virtua FighterIf you walked into an arcade in the early 90&rsquo;s you would have seen a solid wall of cabinets all containing one game, Street Fighter 2. There might even have been many different versions of Street Fighter 2.&nbsp;Street Fighter 2: The World Warrior, the game that kicked off a new era in fighting games. Street Fighter 2: Champion Edition let you play as the boss characters from the first version and introduced mirror matches that let two&nbsp;players fight as palette swapped copies of the same character. Street Fighter 2 Turbo: Hyper Fighting sped up&nbsp;the game, added new character moves, and rebalanced the whole shebang for better competitive play. Street Fighter 2: Rainbow Edition was a hacked bootleg of one of the previous games that could have any number of tweaks and twists that made the fighting flat out goofy and unpredictable. There may have even been Super Street Fighter 2, a game with new characters, completely redone graphics and sound, and new sets of moves for the entire roster. It wouldn&rsquo;t even be uncommon for there to be a couple copies of each game. Not only could there be a solid dozen cabinets all sporting Street Fighter 2, but odds were good that they would all be in use. That was an arcade in the early 90&rsquo;s. All hadoukens, all the time.Of course Street Fighter wouldn&rsquo;t be the only game in there, just most of them. Off in the one of the less populated corners of the place would be another fighting game. It would only use three buttons rather than the Street Fighter 2 six buttons or the Mortal Kombat five buttons. Seemingly, not enough possible inputs for a fighting game with a rich set of moves. The characters looked like people shaped pinatas made from serrated construction paper. All flat faces and jagged edges. Compared to the beautiful hand painted animation of games like Street Fighter 2, Virtua Fighter was unquestionably ugly. Ugly and strange. In still shots, the game looked awful, but in motion Virtua Fighter sang.Released a couple of years before the first Toy Story, the real time 3D graphics of Virtua Fighter were an unknown quantity. Where movies, television shows, and commercials could devote the time and budget to render all of the glossy effects and characters slowly, one small patch of pixels at a time, real time games need to draw the whole screen once every 30th or, for a fighting game, 60th of a second. That isn&rsquo;t enough time to render one leaf in A Bug&rsquo;s Life. Given those limitations, Virtua Fighter can be forgiven for looking sort of ugly. The way the characters moved was the furthest thing from ugly. Street Fighter 2 adopted an animation style of held frames followed by rapid motion and short, cycled movements. The whole game feels snappy and precise. Virtua Fighter is fluid. All of the characters take on a martial artist dance like quality as punch, kick, block, and jump actions flow one into the next. Street Fighter 2 pits a collection of anime wizards in staccato combat, throwing balls of energy across the screen, breathing fire, or excreting lightning. Virtua Fighter moves like Jackie Chan choreography, close up and visceral. The hits land like cannon fire, but smoothly defending, countering, and chaining blows can feel almost elegant. All the while the camera dynamically&nbsp;swoops and glides to frame the action.The transition to 3D graphics was not entirely flawless, but it proved what was possible when character movements are comprised of a sequence of mathematical probabilities, rather than pre-drawn images. The game simulation becomes reactive to player input rather than pulling from a grab bag of predetermined drawings on a millisecond to millisecond basis. This game that, on the face of it, was ugly, could actually feel more alive and immediate than the dozens of other games that lined the walls of a 90&rsquo;s arcade. Virtua Fighter is one of the best games." />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -529,14 +554,6 @@
 
 
 
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
-
-
-
-
 <!-- return -->
 
 <h1 data-toc-skip>190﻿</h1>
@@ -668,19 +685,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=190%EF%BB%BF+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F190%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=190%EF%BB%BF%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F190%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=190%EF%BB%BF+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F190%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=190%EF%BB%BF%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F190%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F190%2F&text=190%EF%BB%BF+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F190%2F&text=190%EF%BB%BF%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9097,17 +9114,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9179,9 +9186,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9229,9 +9234,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9287,7 +9290,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

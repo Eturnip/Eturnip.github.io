@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="125" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="I hate rendering. Can&rsquo;t stand it. I would be positively ellated to never have to render anything ever again. That leads to the obvious question. What is rendering, and why do you hate it so much? Since a lot of my past work has been in 3D graphics and animation, the context from which I invoke the word &ldquo;rendering&rdquo; is probably important. Rendering is when you, as a digital artist, ask the computer to please take all of the 3D models, texture maps, particle effects, and lighting trickery, and pass the whole mess through some sort of prettying sieve. The pixels extruded out the other side of this process should be in the order that you expected, or at least arranged nicely. Depending on the renderer you are using and what you tell it to do, you can get all sorts of different looks, anywhere from photorealistic, to pre playstation 1 era polygon soup. Every computer generated image had to pass through a renderer of some description. Some just light up the screen pixels you suggest to the rendering software might need lighting up. Others read the geometry in the scene and calculate the way that light bounces around the objects turning each impacted surface into a new light source, with it&rsquo;s own colour and scatter parameters. The thing calculates the movement of light. No matter how efficient the calculations are, that&rsquo;s a job that is going to take some time. I used to dread rendering. When you first start a scene there are only a few simple objects in it, and the instructions for how to colour and light them are usually fairly simple. Rendering software could take less than a second with a scene like that. Maybe you can even have the scene render at near realtime, at 10, 20, or 30 frames per second. Testing animation, geometry and lighting setups is a pretty brisk affair at this sort of speed. Add a few more objects and some nice high resolution textures and the framerate plummets. Soon it&rsquo;s taking several seconds per image to render. You can still work and iterate on a job at that speed, but you are usually one or two additions away from it taking several minutes per frame. Now you have to do tiny spot renders. Maybe just check the top of a lamppost, or only the last few frames of a walk cycle. Rendering an entire animation is no longer feasible. That is usually the precise moment when a client will ask for a major timing revision, or a camera angle change. You proofed and got a signoff on all this stuff when the render time was a few seconds per frame, now that making changes eats up the whole afternoon you need to do a 45 degree rotation to the camera pointing it at something you haven&rsquo;t textured yet, and they need the new render by the morning. Now you might be seeing why I hate rendering. Pixar and ILM have massive refrigerated rooms full of computer hardware to tackle this problem. A render might take minutes, or even hours per frame, but if you split that up over 200 cpus, 500 cpus, several thousand cpus, you should be able to see the results of any changes right quick. If you are working on one machine in an advertising shop, 15 minutes per frame is a recipe for a bad time. Over the past few years I have been using game engines. Game engines use a renderer to put graphics to the screen, but games prioritise speed over beauty. Games have to spit out 30-60 frames every second just to remain playable. The ones that dive below that suffer the ire of players and reviewers. For years we have been hearing that new graphics software and hardware will allow a game to look like a Pixar movie. Depending on how you view that moving goalpost, Pixar is still working to make their movies look better too after all, games may never get there, or they may have gotten there around Ratchet and Clank Future. Ratchet and Clank Future: Tools of Destruction came out in 2007 and it&rsquo;s still wall to wall gorgeous. I recently loaded a very high polygon model that I had been working on into the Unity 5 engine. The recent addition of an advanced lighting system made the model look fricken beautiful before I even did any advanced processes to it. I could make changes, move the camera anywhere, and change the lighting all at roughly 30 fps. The same model took several minutes per frame to render through the Blender Cycles renderer, even with hardware acceleration turn on. The visual difference between the images that came out of Cycles and the Unity renderers did not justify the extra time. The Unreal and Crytek engines can do similar quality images. I don&rsquo;t think I care how pretty the latest Renderman derivative can make a scene look. I&rsquo;ll be using game engines to render everything in the future.There is a slightly higher learning curve to getting things running smoothly in a game engine, but I figure if a person took the time to learn Maya or 3DStudio they probably won&rsquo;t have much trouble navigating game asset requirements. I still hate rendering, but I think I like where it&rsquo;s headed." />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -529,14 +554,6 @@
 
 
 
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
-
-
-
-
 <!-- return -->
 
 <h1 data-toc-skip>125</h1>
@@ -668,19 +685,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=125+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F125%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=125%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F125%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=125+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F125%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=125%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F125%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F125%2F&text=125+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F125%2F&text=125%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9097,17 +9114,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9179,9 +9186,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9229,9 +9234,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9287,7 +9290,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

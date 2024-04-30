@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="220" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="I&rsquo;ve been very slowly working my way through this amazing book, Art of Atari put together by Tim Lapetino. Every single page reveals a new beautiful image that I have to study for a few minutes before moving on. This makes reading the actual text of the book take a lot longer than I would have expected, but I can&rsquo;t really complain. It&rsquo;s all just cover to cover gorgeous.I have read several books on the history of video games and the history of silicon valley. As you might expect, stories about the inner workings of Atari come up fairly often. Tales of the work hard, play hard lifestyle Atari had going are pretty entertaining. Since those histories tend to focus on the games, the game developers, and the fledgling business of games, a lot of this book is pretty new territory for me. As the title would suggest, the book is mainly focused on the artists and designers that created the Atari look of the late 70s and early 80s. The state of the art in actual on screen graphics at the time consisted mainly of chunky abstract blocks of color. If you were going to suspend disbelief and accept that those few yellow squares are actually a medieval warrior, bridging that gulf had to start somewhere. Playing a video game in the early 80s didn&rsquo;t start when you put the cartridge in the console. &nbsp;It started with the box art, and the pictures in the manual. It started with the brief tales of galactic adventure that accompanied them. &nbsp;the work that went into that art and design are every bit as fascinating as stories about the games they complimented. At least for me. What I was particularly taken by was how all of the art, all of the design, had to be filtered through the production technology available at the time. When I started creating commercial art, the world was well into the Photoshop era. Getting digital art out of the computer and into the physical world was still a bit janky, but creating in the computer was rapidly becoming the standard. None of these folks had that available to them. Everything had to be hand done and prepped for screen printing. Large format Inkjet printers that spray the images directly onto vinyl just didn&rsquo;t exist. The had some four colour process printers that could do the smaller stuff, like cartridge decals and product boxes, but even those lacked the fidelity of modern printers. Working to the technology available, the Atari artist and designers created some amazing things.For several years I worked designing and manufacturing signs. While most of the technology for that industry has advanced significantly since the late 70s, there are still some places where it has lagged behind print production. I have, for example, hand cut a rubylith, which is something only old timers in print and screen printing hipsters will understand. It still comes up from time to time in the sign industry though. Most of it is robots with knives issued marching orders by custom software not too dissimilar from Illustrator. Even with that experience, I have some difficulty wrapping my brain around the hurdles a designer would have to leap to get a six foot tall graphic produced and applied to an arcade cabinet. Well, I have some more amazing pictures to stare at, so I&rsquo;m going to go do that." />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -529,14 +554,6 @@
 
 
 
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
-
-
-
-
 <!-- return -->
 
 <h1 data-toc-skip>220</h1>
@@ -668,19 +685,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=220+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F220%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=220%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F220%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=220+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F220%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=220%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F220%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F220%2F&text=220+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F220%2F&text=220%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9097,17 +9114,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9179,9 +9186,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9229,9 +9234,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9287,7 +9290,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

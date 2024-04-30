@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="Eturnip.com" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="A minimal, responsive, and powerful Jekyll theme for presenting professional writing." />
@@ -78,7 +81,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -94,7 +96,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -145,13 +146,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -162,9 +162,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -181,8 +179,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -212,46 +209,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -339,7 +331,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -349,7 +351,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -358,9 +370,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -370,7 +388,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -461,33 +486,32 @@
 
 
 <div id="post-list">
+  
+    <div class="card post-preview">
+      <a href="/posts/179/">
+        <div class="card-body">
+          <h1 class="card-title">
+            179﻿
+          </h1>
+
+          <div class="card-text post-content">
+            <p>
+              
 
 
 
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/179/">179﻿</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
 
 
-
-
-
-        
+              
 				Best Games - Deus ExThe first time I tried to play Deus Ex, I played it like a shooter. Running from place to place, trying to clear out all the enemies. I thought it was bland, clunky, overly...
-      </p>
-    </div>
+            </p>
+          </div>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
-
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -504,49 +528,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/178/">178</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				You nudge a thumbstick here and something shifts to the right up there on the screen. You press a button and a small cartoon figure leaps into the air. The screens are accustomed to passively ...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/178/">
+        <div class="card-body">
+          <h1 class="card-title">
+            178
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				You nudge a thumbstick here and something shifts to the right up there on the screen. You press a button and a small cartoon figure leaps into the air. The screens are accustomed to passively ...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -563,49 +587,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/177/">177﻿</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				I&amp;rsquo;ve been creating a game. As you would expect, that has made me think about poetry. Obviously. One of my favorite poems is I Have Not Lingered in European Monasteries by Leonard Cohen. ...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/177/">
+        <div class="card-body">
+          <h1 class="card-title">
+            177﻿
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				I&amp;rsquo;ve been creating a game. As you would expect, that has made me think about poetry. Obviously. One of my favorite poems is I Have Not Lingered in European Monasteries by Leonard Cohen. ...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -622,53 +646,53 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
+    </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/176/">
+        <div class="card-body">
+          <h1 class="card-title">
+            176﻿
+          </h1>
 
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/176/">176﻿</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
+          <div class="card-text post-content">
+            <p>
+              
 
 
-        
+
+
+
+              
 				The Room&amp;#8203;Twist turn slide revealThe appearance of puzzles.Much more. Mysteries
 
 		
 
 
-      </p>
-    </div>
+            </p>
+          </div>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
-
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -685,49 +709,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/175/">175﻿</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				I am roughly 45% composed of nostalgia at this point. I fully expect to continue on this trajectory and transmute into pure nostalgia sometime in my 90s. For a few decades, I will be little mo...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/175/">
+        <div class="card-body">
+          <h1 class="card-title">
+            175﻿
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				I am roughly 45% composed of nostalgia at this point. I fully expect to continue on this trajectory and transmute into pure nostalgia sometime in my 90s. For a few decades, I will be little mo...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -744,49 +768,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/174/">174﻿</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				Best Games - Waku Waku 7Waku Waku 7 walks a fine line. Everything about the game is a send up of the fighting genre. Still it manages to be a competent fighter. The characters are thoroughly r...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/174/">
+        <div class="card-body">
+          <h1 class="card-title">
+            174﻿
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				Best Games - Waku Waku 7Waku Waku 7 walks a fine line. Everything about the game is a send up of the fighting genre. Still it manages to be a competent fighter. The characters are thoroughly r...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -803,49 +827,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/173/">173﻿</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				I don&amp;rsquo;t know how you were first introduced to Shakespeare, but it was probably taught to to you in school, and it was probably taught to you wrong. The collected works of William Shakesp...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/173/">
+        <div class="card-body">
+          <h1 class="card-title">
+            173﻿
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				I don&amp;rsquo;t know how you were first introduced to Shakespeare, but it was probably taught to to you in school, and it was probably taught to you wrong. The collected works of William Shakesp...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -862,49 +886,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/172/">172﻿</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				One of the advantages of writing these posts every week is that I have an instantly searchable record of all the dumb things that I thought over the past few years. Maybe that&amp;rsquo;s a disadv...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/172/">
+        <div class="card-body">
+          <h1 class="card-title">
+            172﻿
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				One of the advantages of writing these posts every week is that I have an instantly searchable record of all the dumb things that I thought over the past few years. Maybe that&amp;rsquo;s a disadv...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -921,49 +945,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/171/">171﻿</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				Double jumping. Simple really. You contract the muscles in your legs, storing energy. You drive as much force as you can muster down into the ground and while raising your center of mass. You ...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/171/">
+        <div class="card-body">
+          <h1 class="card-title">
+            171﻿
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				Double jumping. Simple really. You contract the muscles in your legs, storing energy. You drive as much force as you can muster down into the ground and while raising your center of mass. You ...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -980,49 +1004,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/170/">170﻿</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				Yesterday I sat nestled in the back of a classroom designed to accommodate dozens of students with just three other people. Joel Barr, Logan Cooper, Scott Wilson, and myself teamed up to creat...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/170/">
+        <div class="card-body">
+          <h1 class="card-title">
+            170﻿
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				Yesterday I sat nestled in the back of a classroom designed to accommodate dozens of students with just three other people. Joel Barr, Logan Cooper, Scott Wilson, and myself teamed up to creat...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -1039,26 +1063,26 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-</div> <!-- #post-list -->
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
+    </div>
+    <!-- .post-review -->
+  
+</div>
+<!-- #post-list -->
 
 
   <!--
@@ -2173,17 +2197,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -2255,12 +2269,9 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
-
 
 
 
@@ -2324,8 +2335,7 @@ SimpleJekyllSearch({
 
 
 
-
-<script defer src="/assets/js/dist/home.min.js"></script>
+<script defer src="/assets/js/dist/misc.min.js"></script>
 
 
 

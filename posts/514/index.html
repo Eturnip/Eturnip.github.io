@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="514" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="We&rsquo;ve had the Steam Deck here for a while now. It&rsquo;s a great machine. We have played a handful of modern games with it, but, in all honesty, I mostly play old games on it. Mostly Street Fighter.I did play Street Fighter using a gamepad for a while when I first discovered Mame and other emulators. But not for very long, and not seriously.I built my first arcade stick in about 1998. I have had an arcade stick or arcade cabinet ever since. At times, a couple of them. If I wanted to play arcade fighting games at any time in those years, I played on an arcade stick.Any time I played a fighting game on a gamepad I didn&rsquo;t really have a feel for it. I would swap back and forth between the stick and the D-Pad, never really finding my groove with either. I wouldn&rsquo;t know how to map the buttons, so I would end up putting my heavies on the face buttons and just never using my medium punch or kick. It was so foreign to the way I was used to playing. I could get a fireball or hurricane kick to come out once or twice per match. Dragon punches? Forget about it. I just could not get my thumb to perform the movements.The convenience of the Steam Deck has changed how I play fighting games. I think I will always prefer an arcade stick (bats not balls), but I think I get it now. I am incrementally catching up to all those kids who played a ton of Super Street Fighter II Turbo: Hyper Fighting on the SNES. I can crank out fireballs all day on a DPad now. I can even get the dreaded dragon punch to come out 9 times out of 10.I am not now, nor will I ever be, a master at fighting games, but I still have fun playing them. I crank up the computer difficulty pretty high to make the early fights more difficult (though that does mean that the cpu does some pretty wild stuff that a human could never do) and I am getting more and more good wins with gamepad style controls. I still get stomped a little past halfway through the arcade campaign, but that is sort of intentional. These games were made to eat quarters after all.I knew that we would use the Steam Deck to play current games, and I knew that I would put emulators on there and use it to play older games, but I didn&rsquo;t really think that it would change the way I play one of my favorite genres. I have a noticeable callus on my left thumb from doing quarter circle swipes.Maybe I can use it to understand the charge system in Art of Fighting. I doubt it.&#8203;" />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -529,14 +554,6 @@
 
 
 
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
-
-
-
-
 <!-- return -->
 
 <h1 data-toc-skip>514</h1>
@@ -668,19 +685,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=514+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F514%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=514%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F514%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=514+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F514%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=514%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F514%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F514%2F&text=514+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F514%2F&text=514%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9097,17 +9114,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9179,9 +9186,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9229,9 +9234,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9287,7 +9290,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

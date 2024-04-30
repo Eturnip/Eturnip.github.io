@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="011" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="10000000, ideas, and open development When I played 10000000 two things went through my head. First, this game is brilliant. It is simple and accessible enough that my whole family could play it, but addictive enough that we kept coming back. My second thought was, &quot;dammit, he beat me to it&quot;.&nbsp;I try not to treat ideas very preciously. If I come up with an idea that I think is good I would rather give it to someone who might use it than keep it to myself to gather some sort of glory down the line. That glory never comes, and I&#39;m honestly not certain I would want it if it did. Sounds like a lot of hassle. Oh and then there is this. I know all my good ideas are stolen.&nbsp;My head is a labyrinthine mess of minutia and non sequiturs. Bits of old superhero comics, video games, tv shows, books, and, to a lesser extent, actual, useful facts all swim around In my thought soup playing free association with each other. Considering a development challenge will just as often lead me to thinking about 6 panels of a Wolverine from 1991, a videogame I played in a rink in Sylvan Lake, or some quick fix I had to pull on a car 15 years ago. All equally valid solutions to the problem as far as I&#39;m concerned. Typically it is some artisanal blend of distantly recalled pop culture, and physical manufacturing, that solves most problems. Surpassing any skill I may have gained from toiling at many jobs, (That&rsquo;s a Fugitive reference. See. Still stealing ideas) I have a definite aptitude for combining seemingly disparate things to make new things.&nbsp;I&rsquo;m not unique.&nbsp;I get the impression, mostly because people tell me, directly, in almost precisely these words, that a lot of creative people think in exactly the same way. There is a community of &quot;makers&quot; growing. They are a tribe of people connected almost solely by this affinity for combining ideas. The further afield the ideas that you are appropriating, and fusing, the better. I grew up on a farm, where being a &lsquo;maker&rsquo; is encoded at a genetic level. It&rsquo;s probably the same at most farms around the world. In fact a good portion of people who didn&rsquo;t grow up on a farm probably do the same thing. I&rsquo;ll broaden that out a bit more. Maybe it&rsquo;s a human trait, to want to combine different ideas to make new ideas. In any case, I&rsquo;m not unique.&nbsp;I thought &ldquo;dammit, he beat me to it&rdquo;. The it in question was a basic premise for a game. A protagonist, moving from left to right, &nbsp;that you don&rsquo;t directly control, but instead, help through an adventure, by manipulating a puzzle type game lower down on the screen. This one, run on sentence description could sum up Adventure Caddie. The loose design document that I started putting together was created in November of 2011, and the prototypes predate that, so I had been working on for quite a while by the time 10000000 launched on the app store. For a short time, I was gutted. The two games shared a lot, and Luca Redwood&rsquo;s game was so very good. People would certainly think I stole his ideas. Of course, this also meant something else. The core idea of the game worked. It was fun.To tell the truth there is only a very superficial similarity between the two games. Much in the way as say, Mario and Sonic are the same. What seems to have happened, as often happens, is that we both went to the well of ideas and pulled up a similar bucketful. While I don&rsquo;t know Luca Redwood, it does seem reasonable that we probably share many pop culture influences. He may have played Puzzle Fighter, puzzle quest, and lemmings. I felt these were sources worth stealing from, why wouldn&rsquo;t someone else.&nbsp;Now 10000000 exists in the world. Its a great thing too. Other people down the line will use that game and maybe something they learned while working on a tractor, or a fishing boat, to make the next great thing. Anything created carries the imprint of it&rsquo;s influences forward. Nothing is created influence free.As I continue to wrestle with this concept of more open development, it&rsquo;s a constant battle to resist the impulse to protect ideas as valuable commodities. Truth is, we all go to the same well for our ideas and the odds are pretty good that someone similar to me, or you, might come up with the same ideas. When many people, isolated from one another, come up with similar ideas, and then act on them, we are probably on the right track. There is no reason to be discouraged, at least not to the point that we stop making what we are making, when we see that something similar has already been done. The proof of concept is out of the way. It works, and it&rsquo;s fun. Now it&rsquo;s time to see what we can bring to it. What I can bring to it.If you have an IOS device, you should probably go get 10000000. It&rsquo;s great. Update: looks like 10000000 is now on Steam. so head over there if you want to play it on your computer." />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -529,14 +554,6 @@
 
 
 
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
-
-
-
-
 <!-- return -->
 
 <h1 data-toc-skip>011</h1>
@@ -668,19 +685,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=011+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F011%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=011%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F011%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=011+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F011%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=011%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F011%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F011%2F&text=011+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F011%2F&text=011%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9097,17 +9114,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9179,9 +9186,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9229,9 +9234,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9287,7 +9290,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

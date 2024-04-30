@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="023" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="I don&rsquo;t think that writers block (or artists / designers / creators block) is a fear of the blank page or canvas. I think a creator gets &ldquo;blocked&rdquo; because they haven&rsquo;t adequately defined the problem they are trying to solve.I&rsquo;m sure that not everyone thinks, or works like this. I&rsquo;m sure that some people prefer to intuit creative expression, but my brain just doesn&rsquo;t work like that. Art needs to be equal parts feeling and mechanics for me to create something successful. It&rsquo;s probably why I gravitate to design work that has a large technical component to it. Like games.Here is a quick breakdown of how I went about defining one particular design problem. When I first started on this game I had almost no idea what it would look like. It just didn&rsquo;t seem important. The mechanics of how you would move items around the screen was a more interesting and immediate problem. Games, even experiential art games like Proteus, are more about mechanics than design. Proteus is about navigating, and poking at, an environment. The aesthetics could have gone off in pretty much any direction, but movement and exploration are the core of that design. Establish that core and you have taken a step toward defining your design problem. In our case, we have a game that is played from a typical puzzle game perspective. The camera is locked in one position and adding too much perspective, or changing perspective, will just make the game more difficult to play. So there is another step toward defining the design problem.&nbsp; We wanted some representation of progress in the game, how far have you gone in a level or challenge, and how far away is the next challenge. There is already a game vocabulary for that. It is sometimes described as &ldquo;move right and conquer&rdquo;. The player character typically starts on the left side of the screen and either moves to the right of the screen, or just continuously moves right as the world moves past them heading left. As a visual shorthand for progress this construct works very well, and it is easy for non-gamers to pick up, so that further defines the design of the game.&nbsp;The most important elements of the game should take up the majority of the screen space. Our game is also being simultaneously designed for pc and mobile devices, so the physical limitation of touch devices has to come into play. Elements that can be touched need to be a certain size or they just won&rsquo;t work. This pushes the progress area up into a small portion of the screen. The hero character and the enemies will need to fit in this small area, so that means that fine details in the character textures just won&rsquo;t be visible. Large, high contrast details on the characters becomes a requirement. While trying to develop a presentation that meets these requirements, but is still visually interesting, I realized that there were still a lot of directions I could go in. I made a few false starts and tried out some ideas that just didn&rsquo;t work out, because I still had not really defined the problem.&nbsp;At first I tried creating detailed 3D models, thinking that we might use them in long shots and closeups. Closeups didn&rsquo;t really feel like they would help the game at all, so we could do away with those. Then I thought that flat, cut out style design would give us the contrast we needed. They would, but the character animation would be very limited. I settled on low to medium detail 3D models with high contrast, monochromatic textures. While the surface details of small objects wouldn&rsquo;t be visible, animation can read well at a very small scale, so having a character that was easy to animate was still very important. Memory limitations are always a consideration on mobile platforms. One of the benefits of going with monochromatic textures is that they are highly compressible. Also, since a typical image file is actually made up of 3 (4 if you count the alpha channel) monochromatic channels that are combined into a single colour image, we can pack 3 times as much information into the same amount of memory space.&nbsp;As I further and further define the problem, or problems I&rsquo;m trying to solve with this design, the easier and more obvious the solutions get. Now it could be possible that I need to go back and rethink the problem, or solve it in a different way. I could get partway into a design solution, only to find I&rsquo;m not really solving the problem at all. As long as I keep narrowing in on the problem, further defining and refining it, each blank page is just one in a long line of blank pages that are filled, and then abandoned. Each one is just another opportunity to solve a problem.&nbsp;And here is a video of me painting a texture in Sculptris." />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -498,6 +523,12 @@
   
   
 
+  <!-- CDN URL -->
+  
+
+  <!-- Add image path -->
+  
+
   
     
       
@@ -506,74 +537,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -581,74 +614,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -656,74 +691,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -731,74 +768,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -806,74 +845,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -881,74 +922,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -956,74 +999,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -1031,74 +1076,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -1136,14 +1183,6 @@
   
 
   
-
-
-
-
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
 
 
 
@@ -1230,42 +1269,42 @@
   <div class="blog-content">
 				<div class="paragraph" style="text-align:justify;">I don&rsquo;t think that writers block (or artists / designers / creators block) is a fear of the blank page or canvas. I think a creator gets &ldquo;blocked&rdquo; because they haven&rsquo;t adequately defined the problem they are trying to solve.<br /><br />I&rsquo;m sure that not everyone thinks, or works like this. I&rsquo;m sure that some people prefer to intuit creative expression, but my brain just doesn&rsquo;t work like that. Art needs to be equal parts feeling and mechanics for me to create something successful. It&rsquo;s probably why I gravitate to design work that has a large technical component to it. Like games.<br /><br />Here is a quick breakdown of how I went about defining one particular design problem. <br /><br />When I first started on this game I had almost no idea what it would look like. It just didn&rsquo;t seem important. The mechanics of how you would move items around the screen was a more interesting and immediate problem. Games, even experiential art games like Proteus, are more about mechanics than design. Proteus is about navigating, and poking at, an environment. The aesthetics could have gone off in pretty much any direction, but movement and exploration are the core of that design. Establish that core and you have taken a step toward defining your design problem. <br /></div>  <div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px"> <div class="table-wrapper"><table class="wsite-multicol-table"> <tbody class="wsite-multicol-tbody"> <tr class="wsite-multicol-tr"> <td class="wsite-multicol-col" style="width:50%;padding:0 15px">  <div><div class="wsite-image wsite-image-border-thin " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
  <a>
- <img data-src="/uploads/9827127091d.png?208" alt="Picture" style="width:auto;max-width:100%" data-proofer-ignore>
+ <a href="/uploads/9827127091d.png?208" class="popup img-link "><img data-src="/uploads/9827127091d.png?208" alt="Picture" style="width:auto;max-width:100%" class="lazyload" data-proofer-ignore></a>
  </a>
  <div style="display:block;font-size:90%"></div>
  </div></div>  </td> <td class="wsite-multicol-col" style="width:50%;padding:0 15px">  <div><div class="wsite-image wsite-image-border-thin " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
  <a>
- <img data-src="/uploads/74381217ef6.png?150" alt="Picture" style="width:auto;max-width:100%" data-proofer-ignore>
+ <a href="/uploads/74381217ef6.png?150" class="popup img-link "><img data-src="/uploads/74381217ef6.png?150" alt="Picture" style="width:auto;max-width:100%" class="lazyload" data-proofer-ignore></a>
  </a>
  <div style="display:block;font-size:90%"></div>
  </div></div>  </td> </tr> </tbody> </table></div> </div></div></div>  <div class="paragraph" style="text-align:left;">In our case, we have a game that is played from a typical puzzle game perspective. The camera is locked in one position and adding too much perspective, or changing perspective, will just make the game more difficult to play. So there is another step toward defining the design problem.&nbsp;<br /></div>  <div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px"> <div class="table-wrapper"><table class="wsite-multicol-table"> <tbody class="wsite-multicol-tbody"> <tr class="wsite-multicol-tr"> <td class="wsite-multicol-col" style="width:50%;padding:0 15px">  <div><div class="wsite-image wsite-image-border-border-width:0 " style="padding-top:10px;padding-bottom:10px;margin-left:10px;margin-right:10px;text-align:center">
  <a>
- <img data-src="/uploads/1365459627.jpg" alt="Picture" style="width:auto;max-width:100%" data-proofer-ignore>
+ <a href="/uploads/1365459627.jpg" class="popup img-link "><img data-src="/uploads/1365459627.jpg" alt="Picture" style="width:auto;max-width:100%" class="lazyload" data-proofer-ignore></a>
  </a>
  <div style="display:block;font-size:90%"></div>
  </div></div>  </td> <td class="wsite-multicol-col" style="width:50%;padding:0 15px">  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
  <a>
- <img data-src="/uploads/8387683077e.png?249" alt="Picture" style="width:auto;max-width:100%" data-proofer-ignore>
+ <a href="/uploads/8387683077e.png?249" class="popup img-link "><img data-src="/uploads/8387683077e.png?249" alt="Picture" style="width:auto;max-width:100%" class="lazyload" data-proofer-ignore></a>
  </a>
  <div style="display:block;font-size:90%"></div>
  </div></div>  </td> </tr> </tbody> </table></div> </div></div></div>  <div class="paragraph" style="text-align:left;">We wanted some representation of progress in the game, how far have you gone in a level or challenge, and how far away is the next challenge. There is already a game vocabulary for that. It is sometimes described as &ldquo;move right and conquer&rdquo;. The player character typically starts on the left side of the screen and either moves to the right of the screen, or just continuously moves right as the world moves past them heading left. As a visual shorthand for progress this construct works very well, and it is easy for non-gamers to pick up, so that further defines the design of the game.&nbsp;<br /><br />The most important elements of the game should take up the majority of the screen space. Our game is also being simultaneously designed for pc and mobile devices, so the physical limitation of touch devices has to come into play. Elements that can be touched need to be a certain size or they just won&rsquo;t work. This pushes the progress area up into a small portion of the screen. The hero character and the enemies will need to fit in this small area, so that means that fine details in the character textures just won&rsquo;t be visible. Large, high contrast details on the characters becomes a requirement. While trying to develop a presentation that meets these requirements, but is still visually interesting, I realized that there were still a lot of directions I could go in. I made a few false starts and tried out some ideas that just didn&rsquo;t work out, because I still had not really defined the problem.&nbsp;<br /><br />At first I tried creating detailed 3D models, thinking that we might use them in long shots and closeups. Closeups didn&rsquo;t really feel like they would help the game at all, so we could do away with those. Then I thought that flat, cut out style design would give us the contrast we needed. They would, but the character animation would be very limited. I settled on low to medium detail 3D models with high contrast, monochromatic textures. While the surface details of small objects wouldn&rsquo;t be visible, animation can read well at a very small scale, so having a character that was easy to animate was still very important.<br /></div>  <div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px"> <div class="table-wrapper"><table class="wsite-multicol-table"> <tbody class="wsite-multicol-tbody"> <tr class="wsite-multicol-tr"> <td class="wsite-multicol-col" style="width:50%;padding:0 15px">  <div><div class="wsite-image wsite-image-border-thin " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
  <a>
- <img data-src="/uploads/79040910640.png?158" alt="Picture" style="width:auto;max-width:100%" data-proofer-ignore>
+ <a href="/uploads/79040910640.png?158" class="popup img-link "><img data-src="/uploads/79040910640.png?158" alt="Picture" style="width:auto;max-width:100%" class="lazyload" data-proofer-ignore></a>
  </a>
  <div style="display:block;font-size:90%"></div>
  </div></div>  </td> <td class="wsite-multicol-col" style="width:50%;padding:0 15px">  <div><div class="wsite-image wsite-image-border-thin " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
  <a>
- <img data-src="/uploads/6281679ec89.png?102" alt="Picture" style="width:auto;max-width:100%" data-proofer-ignore>
+ <a href="/uploads/6281679ec89.png?102" class="popup img-link "><img data-src="/uploads/6281679ec89.png?102" alt="Picture" style="width:auto;max-width:100%" class="lazyload" data-proofer-ignore></a>
  </a>
  <div style="display:block;font-size:90%"></div>
  </div></div>  </td> </tr> </tbody> </table></div> </div></div></div>  <div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px"> <div class="table-wrapper"><table class="wsite-multicol-table"> <tbody class="wsite-multicol-tbody"> <tr class="wsite-multicol-tr"> <td class="wsite-multicol-col" style="width:50%;padding:0 15px">  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
  <a>
- <img data-src="/uploads/43083227407.png?477" alt="Picture" style="width:auto;max-width:100%" data-proofer-ignore>
+ <a href="/uploads/43083227407.png?477" class="popup img-link "><img data-src="/uploads/43083227407.png?477" alt="Picture" style="width:auto;max-width:100%" class="lazyload" data-proofer-ignore></a>
  </a>
  <div style="display:block;font-size:90%"></div>
  </div></div>  </td> <td class="wsite-multicol-col" style="width:50%;padding:0 15px">  <div><div class="wsite-image wsite-image-border-thin " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
  <a>
- <img data-src="/uploads/3672095_orig.png" alt="Picture" style="width:100%;max-width:1024px" data-proofer-ignore>
+ <a href="/uploads/3672095_orig.png" class="popup img-link "><img data-src="/uploads/3672095_orig.png" alt="Picture" style="width:100%;max-width:1024px" class="lazyload" data-proofer-ignore></a>
  </a>
  <div style="display:block;font-size:90%"></div>
  </div></div>  </td> </tr> </tbody> </table></div> </div></div></div>  <div class="paragraph" style="text-align:justify;"><span style="font-size: 1em; line-height: 1.5;">Memory limitations are always a consideration on mobile platforms. One of the benefits of going with monochromatic textures is that they are highly compressible. Also, since a typical image file is actually made up of 3 (4 if you count the alpha channel) monochromatic channels that are combined into a single colour image, we can pack 3 times as much information into the same amount of memory space.&nbsp;</span><br /><br />As I further and further define the problem, or problems I&rsquo;m trying to solve with this design, the easier and more obvious the solutions get. Now it could be possible that I need to go back and rethink the problem, or solve it in a different way. I could get partway into a design solution, only to find I&rsquo;m not really solving the problem at all. As long as I keep narrowing in on the problem, further defining and refining it, each blank page is just one in a long line of blank pages that are filled, and then abandoned. Each one is just another opportunity to solve a problem.&nbsp;<br /><br />And here is a video of me painting a texture in Sculptris.<br /></div>  <div class="wsite-youtube" style="margin-top:10px;margin-bottom:10px;"><div style="text-align: center;"><object width="400" height="330"><param name="movie" value="https://www.youtube.com/v/05jX3k7_d6Y?version=3" /><param name="wmode" value="transparent" /><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><embed src="https://www.youtube.com/v/05jX3k7_d6Y?version=3" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="transparent" width="400" height="330" /></object></div></div>
@@ -1319,19 +1358,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=023+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F023%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=023%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F023%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=023+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F023%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=023%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F023%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F023%2F&text=023+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F023%2F&text=023%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9748,17 +9787,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9830,9 +9859,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9880,9 +9907,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9938,7 +9963,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

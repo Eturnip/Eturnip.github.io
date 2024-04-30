@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="Eturnip.com" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="A minimal, responsive, and powerful Jekyll theme for presenting professional writing." />
@@ -78,7 +81,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -94,7 +96,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -145,13 +146,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -162,9 +162,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -181,8 +179,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -212,46 +209,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -339,7 +331,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -349,7 +351,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -358,9 +370,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -370,7 +388,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -461,33 +486,32 @@
 
 
 <div id="post-list">
+  
+    <div class="card post-preview">
+      <a href="/posts/567/">
+        <div class="card-body">
+          <h1 class="card-title">
+            567
+          </h1>
+
+          <div class="card-text post-content">
+            <p>
+              
 
 
 
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/567/">567</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
 
 
-
-
-
-        
+              
 				Recently, I tried drawing on actual paper. I mean, this isn&amp;rsquo;t a new thing. I used to draw on paper. I still scratch things out on paper all the time. Just rough notepad sketches when I&amp;r...
-      </p>
-    </div>
+            </p>
+          </div>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
-
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -504,49 +528,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/566/">566</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				An update from the writing front. I only have one story out for submission as I type this (though when you read this, it will probably be at least two). So that isn&amp;rsquo;t great. But I did en...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/566/">
+        <div class="card-body">
+          <h1 class="card-title">
+            566
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				An update from the writing front. I only have one story out for submission as I type this (though when you read this, it will probably be at least two). So that isn&amp;rsquo;t great. But I did en...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -563,49 +587,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/565/">565</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				I put up an image a few weeks ago. It was a screen capture of a game I have been working on for a little bit.Here it is again.         That shot was from the old version of the game.This one i...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/565/">
+        <div class="card-body">
+          <h1 class="card-title">
+            565
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				I put up an image a few weeks ago. It was a screen capture of a game I have been working on for a little bit.Here it is again.         That shot was from the old version of the game.This one i...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -622,49 +646,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/564/">564</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				Best Games - Elevator Action ReturnsElevator Action is a classic arcade game from 1983, where you play as a spy infiltrating an office tower. Your mission involves ascending that tower to sear...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/564/">
+        <div class="card-body">
+          <h1 class="card-title">
+            564
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				Best Games - Elevator Action ReturnsElevator Action is a classic arcade game from 1983, where you play as a spy infiltrating an office tower. Your mission involves ascending that tower to sear...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -681,49 +705,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/563/">563</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				       During the Alberta Game Jam, Kyle Nissen and I created this nightmare. You are tasked with cleaning a set of teeth that will not stop chomping down on trash food.You can play it here.ht...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/563/">
+        <div class="card-body">
+          <h1 class="card-title">
+            563
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				       During the Alberta Game Jam, Kyle Nissen and I created this nightmare. You are tasked with cleaning a set of teeth that will not stop chomping down on trash food.You can play it here.ht...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -740,49 +764,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/562/">562</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				&amp;#8203;Everything I have ever learned about logo design, I learned by tracing.&amp;nbsp;I&amp;rsquo;ve dealt with a lot of logos. I&amp;rsquo;ve probably only designed a few. More than ten, less than twen...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/562/">
+        <div class="card-body">
+          <h1 class="card-title">
+            562
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				&amp;#8203;Everything I have ever learned about logo design, I learned by tracing.&amp;nbsp;I&amp;rsquo;ve dealt with a lot of logos. I&amp;rsquo;ve probably only designed a few. More than ten, less than twen...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -799,49 +823,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/561/">561</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				Neon Noodles, the game I did most of the art for, came out in full release this week. I think you should play it.You can find it hereSteam https://store.steampowered.com/app/990900/Neon_Noodle...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/561/">
+        <div class="card-body">
+          <h1 class="card-title">
+            561
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				Neon Noodles, the game I did most of the art for, came out in full release this week. I think you should play it.You can find it hereSteam https://store.steampowered.com/app/990900/Neon_Noodle...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -858,49 +882,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/560/">560</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				This is some concept art I am working on.         The game project this is for is a retro-pixel top down affair. The character won&amp;rsquo;t look like this in-game. It will look more like this. ...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/560/">
+        <div class="card-body">
+          <h1 class="card-title">
+            560
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				This is some concept art I am working on.         The game project this is for is a retro-pixel top down affair. The character won&amp;rsquo;t look like this in-game. It will look more like this. ...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -917,49 +941,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/559/">559</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				Best Games - Dead ConnectionThe attract mode for Dead Connection opens with a screen that says Taito Film Presents. So far as I can tell there was never an official division of Taito called Ta...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/559/">
+        <div class="card-body">
+          <h1 class="card-title">
+            559
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				Best Games - Dead ConnectionThe attract mode for Dead Connection opens with a screen that says Taito Film Presents. So far as I can tell there was never an official division of Taito called Ta...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -976,49 +1000,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/558/">558</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				I have been sort of off and on with the game project recently. Between finishing up some polish work on Neon Noodles and getting a couple more stories ready to submit, I haven&amp;rsquo;t done muc...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/558/">
+        <div class="card-body">
+          <h1 class="card-title">
+            558
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				I have been sort of off and on with the game project recently. Between finishing up some polish work on Neon Noodles and getting a couple more stories ready to submit, I haven&amp;rsquo;t done muc...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -1035,26 +1059,26 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-</div> <!-- #post-list -->
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
+    </div>
+    <!-- .post-review -->
+  
+</div>
+<!-- #post-list -->
 
 
   <!--
@@ -2169,17 +2193,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -2251,12 +2265,9 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
-
 
 
 
@@ -2320,8 +2331,7 @@ SimpleJekyllSearch({
 
 
 
-
-<script defer src="/assets/js/dist/home.min.js"></script>
+<script defer src="/assets/js/dist/misc.min.js"></script>
 
 
 

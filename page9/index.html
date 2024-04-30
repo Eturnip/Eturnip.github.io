@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="Eturnip.com" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="A minimal, responsive, and powerful Jekyll theme for presenting professional writing." />
@@ -78,7 +81,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -94,7 +96,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -145,13 +146,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -162,9 +162,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -181,8 +179,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -212,46 +209,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -339,7 +331,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -349,7 +351,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -358,9 +370,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -370,7 +388,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -461,33 +486,32 @@
 
 
 <div id="post-list">
+  
+    <div class="card post-preview">
+      <a href="/posts/517/">
+        <div class="card-body">
+          <h1 class="card-title">
+            517
+          </h1>
+
+          <div class="card-text post-content">
+            <p>
+              
 
 
 
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/517/">517</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
 
 
-
-
-
-        
+              
 				Whenever I start a new story, I open two documents. The first one is the story I&amp;rsquo;m trying to write, and the second is all the bits that I want to keep, but cut from the story for one rea...
-      </p>
-    </div>
+            </p>
+          </div>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
-
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -504,49 +528,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/516/">516</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				Best Games - Lode RunnerThe first version of Lode Runner I ever played was on the Atari 800. Then I played it on a Commodore 64. And then on an Apple II. And then on a PC. I just played the Ar...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/516/">
+        <div class="card-body">
+          <h1 class="card-title">
+            516
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				Best Games - Lode RunnerThe first version of Lode Runner I ever played was on the Atari 800. Then I played it on a Commodore 64. And then on an Apple II. And then on a PC. I just played the Ar...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -563,49 +587,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/515/">515</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				Sometime in the early 90s, I was flipping through channels and stopped on this amazing movie. I didn&amp;rsquo;t know what it was, I didn&amp;rsquo;t know how long it had already been running, and I b...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/515/">
+        <div class="card-body">
+          <h1 class="card-title">
+            515
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				Sometime in the early 90s, I was flipping through channels and stopped on this amazing movie. I didn&amp;rsquo;t know what it was, I didn&amp;rsquo;t know how long it had already been running, and I b...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -622,49 +646,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/514/">514</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				We&amp;rsquo;ve had the Steam Deck here for a while now. It&amp;rsquo;s a great machine. We have played a handful of modern games with it, but, in all honesty, I mostly play old games on it. Mostly St...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/514/">
+        <div class="card-body">
+          <h1 class="card-title">
+            514
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				We&amp;rsquo;ve had the Steam Deck here for a while now. It&amp;rsquo;s a great machine. We have played a handful of modern games with it, but, in all honesty, I mostly play old games on it. Mostly St...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -681,49 +705,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/513/">513</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				Just a short writing update today. I have three short stories in various stages, one in the early edit and rewrite stage, one extremely early with only a concept and outline jotted down, and o...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/513/">
+        <div class="card-body">
+          <h1 class="card-title">
+            513
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				Just a short writing update today. I have three short stories in various stages, one in the early edit and rewrite stage, one extremely early with only a concept and outline jotted down, and o...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -740,49 +764,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/512/">512</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				Best Games - Street Fighter Alpha for the Game Boy ColorThis game has no business playing as well as it does on a Game Boy Color.&amp;nbsp;I bought a Game Boy Color in 2001. The Game Boy Advance h...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/512/">
+        <div class="card-body">
+          <h1 class="card-title">
+            512
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				Best Games - Street Fighter Alpha for the Game Boy ColorThis game has no business playing as well as it does on a Game Boy Color.&amp;nbsp;I bought a Game Boy Color in 2001. The Game Boy Advance h...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -799,49 +823,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/511/">511</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				I was going to post up a painting today. That was the plan.I try to sketch or paint a bit every week. You know, just to keep limber or whatever.I had a stint there where I was only really draw...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/511/">
+        <div class="card-body">
+          <h1 class="card-title">
+            511
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				I was going to post up a painting today. That was the plan.I try to sketch or paint a bit every week. You know, just to keep limber or whatever.I had a stint there where I was only really draw...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -858,49 +882,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/510/">510</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				I&amp;rsquo;ve been doing a lot of stuff with procedural textures recently. I think that might be the way everything will have to go in the future.&amp;nbsp;3D graphics have gotten progressively bette...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/510/">
+        <div class="card-body">
+          <h1 class="card-title">
+            510
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				I&amp;rsquo;ve been doing a lot of stuff with procedural textures recently. I think that might be the way everything will have to go in the future.&amp;nbsp;3D graphics have gotten progressively bette...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -917,49 +941,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/509/">509</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				Best Games - CameltrySometimes games get lost. Even great ones.A singularly brilliant idea and design, a game that should have spawned endless sequels and copycats, just disappears.&amp;nbsp;Camel...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/509/">
+        <div class="card-body">
+          <h1 class="card-title">
+            509
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				Best Games - CameltrySometimes games get lost. Even great ones.A singularly brilliant idea and design, a game that should have spawned endless sequels and copycats, just disappears.&amp;nbsp;Camel...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -976,49 +1000,49 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-  <div class="post-preview">
-    <h1>
-      <a href="/posts/508/">508</a>
-    </h1>
-
-    <div class="post-content">
-      <p>
-        
-
-
-
-
-
-        
-				I wrote a story a few years ago that I keep wanting to go back to. It was a short little thing. Maybe 1500 words or so. It felt like a lot at the time. Now, I can&amp;rsquo;t sum up a single thoug...
-      </p>
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
     </div>
+    <!-- .post-review -->
+  
+    <div class="card post-preview">
+      <a href="/posts/508/">
+        <div class="card-body">
+          <h1 class="card-title">
+            508
+          </h1>
 
-    <div class="post-meta text-muted d-flex">
-      <div class="mr-auto">
+          <div class="card-text post-content">
+            <p>
+              
 
-        <!-- posted date -->
-        <i class="far fa-calendar fa-fw"></i>
-        <!--
+
+
+
+
+              
+				I wrote a story a few years ago that I keep wanting to go back to. It was a short little thing. Maybe 1500 words or so. It felt like a lot at the time. Now, I can&amp;rsquo;t sum up a single thoug...
+            </p>
+          </div>
+
+          <div class="post-meta text-muted d-flex">
+            <div class="mr-auto">
+              <!-- posted date -->
+              <i class="far fa-calendar fa-fw"></i>
+              <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -1035,26 +1059,26 @@
 </em>
 
 
-        <!-- categories -->
-        
-          <i class="far fa-folder-open fa-fw"></i>
-          <span>
-          
-            Blog
-          </span>
-        
+              <!-- categories -->
+              
+                <i class="far fa-folder-open fa-fw"></i>
+                <span>
+                  
+                    Blog
+                </span>
+              
+            </div>
 
-      </div>
-
-      
-
-    </div> <!-- .post-meta -->
-
-  </div> <!-- .post-review -->
-
-
-
-</div> <!-- #post-list -->
+            
+          </div>
+          <!-- .post-meta -->
+        </div>
+      </a>
+    </div>
+    <!-- .post-review -->
+  
+</div>
+<!-- #post-list -->
 
 
   <!--
@@ -2169,17 +2193,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -2251,12 +2265,9 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
-
 
 
 
@@ -2320,8 +2331,7 @@ SimpleJekyllSearch({
 
 
 
-
-<script defer src="/assets/js/dist/home.min.js"></script>
+<script defer src="/assets/js/dist/misc.min.js"></script>
 
 
 

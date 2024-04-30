@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="466" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="For the past few months I have been trying to sell stories. Sell is a bit of a stretch I suppose. All the outlets that I have been sending them too would not have paid me much for them. In terms of per hour wages, I would be making less than pennies off these stories. That&rsquo;s not really what I&rsquo;m trying to do though is it? I&rsquo;m not looking to get wealthy off these stories. I want people to read them.I thought a lot about why. I thought maybe it was attention seeking, or validation, or some other ego issue. While all writing has a component of that, I&rsquo;m not so sure that covers it anymore.I have received a good handful of rejection letters. Not a ton, but more than a few. The last 3 have been of the &lsquo;higher level&rsquo; variety. It seems there is a whole tier system for rejection letters. Almost all rejection letters people get are form letters, because the editors of magazines and podcasts receive a lot of submissions and don&rsquo;t have time to respond to all of them with personalized criticism or comments. This makes perfect sense. What a lot of publishers do have is a set of modular rejection letters. They tack on bits and pieces depending on what feedback they want to send but don&rsquo;t really have time to type out. Writers collect these letters to share and compare. They break them down into their component parts. The practice even has a name. Rejectomancy. The practice is so widespread that the word rejectomancy doesn&rsquo;t set off this text editor&rsquo;s spelling filters.Since I can&rsquo;t help but research anything and everything, I have done some research on rejectomancy. I tend to think that a very simple &ldquo;Thanks, but we are going to pass&rdquo; is a good enough rejection letter. It tells me what I need to know and lets me send the story to some other outlet. As it turns out, it isn&rsquo;t that simple. Even in a form rejection letter there are a lot of little segments that publishers tend to add.There is the &lsquo;who&rsquo;s desk did this come from?&rsquo;. Usually it comes from &lsquo;the magazine&rsquo; or &lsquo;outlet&rsquo; and that would mean that a volunteer or contractor read the story and decided not to pass it up to the staff or editor. Then there is the editor&rsquo;s desk. Depending on if they use &lsquo;I&rsquo; or &lsquo;We&rsquo; that might mean that they read it or not. Sometimes they just thank you for your time, but sometimes they say that they would like you to consider them when you are submitting other work. While it would be easy to see this as just being polite, it turns out that it usually isn&rsquo;t, and depending on the outlet, when they say consider us with other work it means exactly that. They liked the story, but something about it didn&rsquo;t fit. Could be the word count, could be the subject matter, could be the tone, could be anything. Maybe they had three dreary stories that issue and they wanted something upbeat to fill it out. Your story was a downer and they passed rather than holding it for a later issue. Or they had to pick between the 5000 word story and the 6000 word story and one of them just fit the space better.&nbsp;I&rsquo;ve gotten a couple of the &lsquo;thanks&rsquo; variety and some of the &lsquo;thanks, send more&rsquo; variety. I got a personal critique. I got at least one &lsquo;thanks, it was yours or another one and we went with the other one&rsquo;. A bummer, but also kind of encouraging.Now that I have a few, I think rejection letters tell you what you are really looking for. If you were trying to please your ego, you would quit after receiving one or two. They do nothing good for the ego. I don&rsquo;t quit though. I do some revisions and send them out again. And again. And again.I&rsquo;ve stopped submitting all scattershot. Instead I go out and look for the right place to send these stories, and I realize that it&rsquo;s less about someone telling me that they like the story and more about getting it to the audience that would appreciate it. People who might read it and have it be important to them in some way. I want to give them away. I am making them to share. Of course I want people to like the stories, but I think, as I have gone through this process, It&rsquo;s much less important that people like me.If I could write a story that means something to someone else, someone that I have never met and will never meet, I think that is what I want. Publishing to these outlets is just the quickest way to get there. I could post them up here, where a dozen or so people would ever read them, but that&rsquo;s not good enough. They need to get out of here and go have a life away from me. They need to have people read them or listen to them without ever having any idea who I am. They need another place to vouch for them and say &lsquo;it&rsquo;s okay, these are stories you might like&rsquo; to people far, far away from this keyboard that they came out of.&nbsp;I&rsquo;ll always love them, but I want them gone and off to their own adventures.&#8203;" />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -529,14 +554,6 @@
 
 
 
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
-
-
-
-
 <!-- return -->
 
 <h1 data-toc-skip>466</h1>
@@ -668,19 +685,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=466+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F466%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=466%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F466%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=466+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F466%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=466%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F466%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F466%2F&text=466+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F466%2F&text=466%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9097,17 +9114,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9179,9 +9186,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9229,9 +9234,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9287,7 +9290,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

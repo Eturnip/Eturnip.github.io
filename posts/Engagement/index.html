@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="Engagement" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="previous posts in this seriesIntroRandomizationIf it wasn&#39;t already painfully clear, I really am not speaking from a place of authority here. I really don&#39;t know if what I&#39;m writing is accurate, or completely ass backward. I&#39;m exploring what I think makes a game a game. These three elements are what I&#39;ve managed to come up with so far. Feel free to tell me if I&#39;m completely out to lunch.EngagementThis is one of those words that can be used very vaguely. Like describing something as artistic, or jazzy. When someone is describing a game and they can&#39;t come up with any nuanced description of why they kept playing, they sometimes say that it is engaging. That&#39;s really it... engagement is whatever keeps someone playing. It&#39;s a catch all. Engagement can come from almost any source. It might be a genuine interest in the game mechanics. How much you like the people you play with. Neurotic compulsion. Flat out, unhealthy, addiction.Engagement changes a series of random events into a game. This is where the rubber meets the road. Literally. In physical terms, engagement is joining two or more objects, imparting the motion of one on the other. Either object can be the instigator of motion, and they can reverse rolls, but the end effect is that engagement of two objects propels the whole forward. Or backward. The effects of engagement don&#39;t need to be positive. They only need to be continuous. If one object repels the other, they are no longer engaged. The game ends.Engagement, when used to describe game play, means that the player is invested in the game beyond the &quot;fun&quot;. Beyond the random. Dice roles are not engaging. Flipping over cards is not engaging. Nearly all card and board games build engagement the easiest way possible... by having you play with other people. Probably people who are your friends. You will play shit that bores you to tears, because you enjoy your friends. In the absence of other people, most video games create engagement by pretending to be other people playing against you. If there was no randomization or the randomization was not obfuscated, the player would feel like they were fighting a game system rather than invaders from... you know... space.Sometimes that system might be enough. Solitaire is intensely engaging, but the mechanics and the randomization are outright blatant. Not obscured at all. For me the engagement in solitaire comes from the brevity of the game... one round tops out around 10-12 minutes, and the rapid fire reveal of the randomized cards. Every flipped card could change the whole game, and you are flipping one of those buggers every couple seconds. Aside from games like poker or backgammon that let the other players engage you, most types of gambling engage in the same way. Speed and repetition. The promise of money doesn&#39;t hurt either I suppose.Space Invaders builds engagement in a couple different ways. First, there are the random events. Bomb drops mostly. People can&#39;t help but try to find pattern and intent in random events. Especially if those events are not explicitly random. We can&#39;t see past the graphics on the screen to divine if the game mechanics and systems are random or intelligent and directed. Whenever that happens, people default to intelligent and directed. That&#39;s just what we do. Exploiting that aspect of our collective psychology is a constant source of engagement for many, many games. Works for religions too... but I don&#39;t think I&#39;ll get into that.Secondly, space invaders builds engagement in almost the exact opposite way. The movement of the invaders is plodding, predictable, and almost entirely unchanging for as long as you play the game. This absolute rigid system is easy for a player to absorb. You know exactly where every invader is going to be at any given time during the game. While the random elements provide the moment to moment, heart skipping tension, the pattern and repetition allow the player to develop a longer term strategy.Those seem to be the key two ways the game engages the player. Of course, what works for some people, won&#39;t work for others. The main draw for some people might be the distinctive glow of the phosphors, or some specific tone in one of the sound effects. It&#39;s hard to tell what might butter a dudes bread. Certain ticks of our individual psychologies are similar enough that a persons responses can, occasionally, be predicted with some amount of accuracy.People like patterns. People like being surprised. People like to get better at predicting, and reacting to, subsequent surprises. Predictable surprises form patterns. Loop.This is the recipe for engagement.It all boils down to this.Randomization = PlayRandomization + Engagement = GameI have one more element to cover. Asymmetry. Games don&#39;t require asymmetry, but Space Invaders does. I&#39;m going to attempt to cover why asymmetry is the basis for modern video games, and why it&#39;s what makes video games different from most other forms of game. My post on engagement went way longer than I had hoped ( and still barely covers the topic ), so I&#39;ll save asymmetry for next time." />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -529,14 +554,6 @@
 
 
 
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
-
-
-
-
 <!-- return -->
 
 <h1 data-toc-skip>Engagement</h1>
@@ -668,19 +685,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=Engagement+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FEngagement%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=Engagement%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FEngagement%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=Engagement+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FEngagement%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=Engagement%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FEngagement%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FEngagement%2F&text=Engagement+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2FEngagement%2F&text=Engagement%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9097,17 +9114,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9179,9 +9186,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9229,9 +9234,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9287,7 +9290,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

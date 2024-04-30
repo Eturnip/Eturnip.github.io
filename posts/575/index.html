@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="575" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="I have been playing some Atari 50. It&rsquo;s part game, part documentary, part interactive museum highlighting some slices over the 50 year history of Atari.It is packed with high resolution scans of game manuals and marketing materials. Most of them are what you would expect. Flyers filled with details about cabinets for arcade owners to peruse when making purchasing decisions, complete with the requisite amount of hype. I find all of this historical miscellany fascinating. This is the sort of stuff that typically gets tossed, since it doesn&rsquo;t offer much value to the company. Not much money to be made with a flyer for an arcade machine that isn&rsquo;t being produced or sold anymore. It&rsquo;s even more difficult for people to see any value in artifacts created for temporary commercial purposes within their own lifetimes. The first Coca Cola logo ever produced is historically interesting, some slight change to that logo produced in the last five months is not. Maybe it should be. Maybe we should celebrate these small artifacts. Small works.One of the things I have been extremely taken with when playing through Atari 50 is the T-Shirts. T-Shirts come up a lot. Pictures of people wearing weird T-Shirts, stories of people making T-Shirts, and the company using T-Shirts as marketing material. Compared to most corporate T-Shirts today, the design of a lot of these T-Shirts absolutely rips.I&rsquo;ll admit here and now that I haven&rsquo;t done a ton of research on this, but I think there might be a reason these particular T-Shirts are great. Most of these T-Shirts are from the late 70s and early 80s. There was a certain confluence of technologies and design during that time that would lead to some really fantastic T-Shirts.First, screen printing technology, which had been around for literally hundreds of years at the time, had fairly recently been commodified to the point that a person could buy or build a screen printing setup for a few hundred dollars. That meant that it became pretty easy for people to print images and words onto T-Shirts, at least if what you want is fairly basic.Around the same time, graphic design and camera technology was going through a similar commodification. We weren&rsquo;t quite to the point where all of this work could be done on a computer, setting up artwork was still mostly a manual process, but improved photographic film, emulsion, and lithograph materials helped designers work cheaper and quicker than ever before. This led to an absolute boom of high quality design being applied to products that never would have enjoyed such high quality artwork even a decade earlier. Toys and moderately priced consumer products started getting the premium artwork treatment. Artwork that could be resized and reused for anything and everything. Artwork that could be applied cheaply to something like a T-Shirt.Of course, the graphic T-Shirt options somewhere in the vicinity of 1979 were nothing like they are today. You can get a cheap shirt with basically anything you want on it now. You can even have a place print something you drew with your finger in a jack box game and they will send you that shirt in a few days. Maybe even less. But that also means that most shirts are considered cheap, almost disposable, items. Companies that make shirts don&rsquo;t always bring their A game.In the late 70s they had a bunch of good artwork and it was very easy to make T-Shirts. Maybe not as easy as it is today, but if you are silk screening the shirts and not inkjet printing them, it was pretty close. If you are a company like Atari and you want to make some shirts to sell, and maybe promote your company and products, you will use the artwork that you have ready for screen printing. The best artwork your company can make. Simply put, nothing else is ready.Almost all of the T-Shirts I am seeing in Atari 50 follow that model. They are screen prints of some bit of art that the company had already photographed and set up for making screens or plates. In other words, their best art. I&rsquo;m sure they had a few duds, but I haven&rsquo;t seen them.While the flyers and other advertising materials were probably held in a flat file somewhere until they were scanned for this project, I doubt the T-Shirts exist now. T-shirts aren&rsquo;t really known for their durability, but also, people don&rsquo;t tend to consider artifacts like that important. At least not historically important.That&rsquo;s unfortunate, since they represent a lot of skilled artist&rsquo;s work. That, and they were a damn sight better than just another corporate logo in the center of someone&rsquo;s chest.&#8203;" />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -529,14 +554,6 @@
 
 
 
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
-
-
-
-
 <!-- return -->
 
 <h1 data-toc-skip>575</h1>
@@ -668,19 +685,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=575+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F575%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=575%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F575%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=575+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F575%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=575%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F575%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F575%2F&text=575+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F575%2F&text=575%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9097,17 +9114,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9179,9 +9186,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9229,9 +9234,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9287,7 +9290,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

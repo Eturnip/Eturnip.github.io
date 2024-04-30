@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="021" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="Games are enjoying a golden age. The first generation that never knew a world without video games is well into bringing up the first generation that will never know a world without the internet. Games and gameplay are not only ubiquitous, they are shared and shareable experiences. The media that promotes, comments on, and criticizes games is in the midst of an overhaul and only a small handful of &ldquo;enthusiast press&rdquo; seem to be ready, or willing to keep pace. Maybe it&rsquo;s time to be done with the game review.I have had a subscription to PC Gamer since the third issue. That&rsquo;s the american version. I purchased, at the newsstand, several issues of PC Gamer UK before that. I would sporadically pick up issues of CGW, Gamepro, and the like, but I only had subscriptions to a few other magazines. NextGen, Play, Polygon, and Game Developer all got the subscription nod. The only ones that still exist are PC Gamer and Game Developer. After almost two decades, I won&rsquo;t be renewing my subscription to PC Gamer, and the reason is game reviews.Not every medium requires interaction. Interaction is how video games work. Interaction is how much of the internet works. That&#39;s &nbsp;sort of their jam. Magazines are are not interactive. Magazines are archival. As a medium, print has one great strength. It lasts. This blog, along with much of the internet, could blink out of existence in a nanosecond. Any time and effort put in could be just flat out gone. If a copy of a 1912 Ohio newspaper exists, what is printed on it, has and will remain unchanged for as long as anyone cares to store it in a cool, dry, drawer somewhere. The same factors that make the internet so fragile, make it instantly and radically mutable. Journalism on the internet, can be interactive. Journalism in print, just isn&rsquo;t.Reviews are a naturally transient thing. Normally, you read a review sometime around the release of some other piece of media. A piece of media you find considerably more important and interesting than the review you are reading. You read it for one of two reasons. You want to know if someone else thinks that thing that you are interested in is worth your time, or you already know and you want to see if that other person agrees with you. Either way, the review itself is not of much value to you, and you are done with it almost immediately after reading. Most people are done with it after reading the number at the bottom of the page. For an interactive medium like video games, that can change and evolve over time, that change and evolve even as you play them, the speed and malleability of the internet is perfectly suited. Storing reviews in a permanent medium like a print magazine, is misunderstanding the medium. Reviews are not criticism. In a review, someone is offering up a yea or nay judgement, usually accompanied by some qualifiers and considerations. Criticism is the examination of a cultural artifact. Criticism of a game could weigh it&#39;s comparative strengths and weaknesses, but it also could be an in depth study of some aspect of the game, and how it relates to, history, art, biomechanics, psychology, sociology, or really anything in the length and breadth of human experience. Which of these two seems more suited for an archival medium?The second problem with most reviews is that games are experiences, not performance. Your experience of a game will probably be much different from my experience. I&rsquo;ve seen people compare writing about games to travel journalism, which really makes a lot of sense. Describing your experience through a game rather than describing the nuts and bolts seems to be closer to the spirit of the medium. I can&rsquo;t remember a time that I read the sports page and saw a blow by blow breakdown of how the sport of Hockey is played. That is what I am treated to month after month in the pages of PC Gamer. Now that a game reviewer can put up a two minute youtube clip breaking down what is good and bad about a game, then move on to writing a more detailed and investigative piece on why that game matters, doesn&rsquo;t that seem like a better use of their time and talent? Doesn&rsquo;t a well thought out argument on the refresh of the Lara Croft character, and why she does or does not advance the cause of feminism in the games seem like a better use of archival media than a &ldquo;back of the box&rdquo; list of the weapons? As navel gazing as it can be, I think the press that reports on games, owes it to the medium. I know they feel a respect for games as an art form, and a part of our cultural fabric, maybe it&rsquo;s time to treat them that way." />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -529,14 +554,6 @@
 
 
 
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
-
-
-
-
 <!-- return -->
 
 <h1 data-toc-skip>021</h1>
@@ -668,19 +685,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=021+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F021%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=021%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F021%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=021+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F021%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=021%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F021%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F021%2F&text=021+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F021%2F&text=021%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9097,17 +9114,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9179,9 +9186,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9229,9 +9234,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9287,7 +9290,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

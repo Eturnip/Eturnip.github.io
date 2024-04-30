@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="345" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="Best Games - Forza MotorsportI&#39;m not really a car guy. A lot of my family are very mechanically inclined. They might even qualify as car guys. I grew up in a car guy town. So much so that a lot of the car guys were girls. Maybe a car folks town. I have paged through the autotrader. I know the difference between a hemi and rotary. I change my own oil and have done minor maintenance on every car I have ever driven. Still, I don&rsquo;t consider myself a car guy. From time to time, I can brush up against what it might be like to be a car guy. Almost always because of a video game.Well before I was old enough to have a licence I played a lot of the game Test Drive on a 286 pc. I played it not because it was a particularly good simulation of driving, but because it included a Ferrari Testarossa in the lineup of exotic sports cars. This was a car feverishly fetishized among my peers. I couldn&rsquo;t even tell you why, but I wanted to drive that Ferrari, and I wanted to drive it fast. Unfortunately Test Drive, as a game, really couldn&rsquo;t live up to the aspiration. You pilot a sports car down a cliffside road and veering to either side will cause you to crash. Traffic on the road is a constant hazzard, but you can only see about 20 meters in front of you so you will probably crash. If you over rev your engine, your windshield inexplicably shatters, and yep, that counts as a crash. Less a driving game and more a waiting for a tow truck game.For the briefest moments, I was something like a car guy. Just without all the messy interest in actual cars.By the time the original Gran Turismo came out on the Playstation, I had been driving for a while. I remember searching the car list for my Crown Victoria and mid 80&rsquo;s Toyota Supra but coming up empty. I had to be content with driving the games version of the Subaru Impreza. While my interest in racing games and car games had definitely increased, &nbsp;my aspirations had been tempered somewhat. Driving pretend cars that I could possibly drive in real life seemed a lot more fun. That was probably because I now had a frame of reference. I knew what driving, even driving fast, felt like and trying to recreate that feeling in a game was exciting. While Gran Turismo was a fun game, it didn&rsquo;t really feel like driving. Conveying the feeling of speed and momentum was beyond the capabilities of a game from 1997 (spoilers: it&rsquo;s still beyond the capabilities of a video game, mostly)In real life, I drove the Toyota Supra until it finally gave up. I played racing and driving games on the Playstation, the Dreamcast, the Playstation 2, and the XBox. None of them felt like actually driving and none of them made me any more interested in cars. Hovercrafts maybe, but not cars. Until I played Forza Motorsport.Forza Motorsport was packed full of cars to drive and tracks to drive them on. Still no sign of my Supra but I had gotten used to that. More important though, it included one crucial addition. Forza Motorsport included a driving line. The driving line in Forza Motorsport is a truly wonderful thing. The option to turn on the driving line is in the assists menu. The developers considered it a cheat. A way to make the game easier. The real beauty of the driving line is that it makes Forza Motorsport feel more like actually driving.There are no video games that can recreate the feeling of driving a car. The force of acceleration. A hard turn or slamming the brakes. The graphics and sound can attempt to recreate everything in precise glowing detail, and with VR you can even experience all of that from inside the car, but if you are not moving, you won&rsquo;t feel like you are moving. The driving line in Forza is like braille for your sense of motion. What you can&rsquo;t feel, it attempts to recreate using a curving line in shades of green and red. Is it perfect? No, far from it. But the driving line in Forza, after I had gotten used to it, let me experience a closer approximation of driving than I had ever experienced before in a driving game. I went on to race dozens of hours on those tracks. I raced a Subaru Impreza even in races where it wasn&rsquo;t the best car to choose. I tuned cars and swapped out parts. I tweaked and adjusted tiny nuances to make the cars drive just as I liked.For a short while, I was a car guy. Well maybe not really, but I did play as one in a video game. Forza Motorsport is one of the best games.&#8203;" />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -529,14 +554,6 @@
 
 
 
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
-
-
-
-
 <!-- return -->
 
 <h1 data-toc-skip>345</h1>
@@ -668,19 +685,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=345+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F345%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=345%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F345%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=345+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F345%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=345%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F345%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F345%2F&text=345+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F345%2F&text=345%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9097,17 +9114,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9179,9 +9186,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9229,9 +9234,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9287,7 +9290,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="465" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="This is a picture. I made this picture. This picture gives me anxiety. There is a state that all drawings and paintings go through that can be best classified as &ldquo;unfortunate&rdquo;. It&rsquo;s the state that makes an artist want to cover the paper so people looking over your shoulder can&rsquo;t see your mess. People who are not the artist might, rightly, think that this is as good as it will get and walk away disappointed. I have worked very long and very hard on myself to break the impulse to cover my paper.I&rsquo;ve been here before. Every time I draw, paint, write, model, texture, light, or animate anything, there is a point where the honest impulse would be to cover the paper. Hide the shame of a picture that is in that halfway and unfortunate state. Every time I hit that point, I feel it too. I think this picture, or story, or whatever, is always going to look like this and it will be terrible, and I am terrible, and why did I even try doing this thing in the first place.Like I said though, I&rsquo;ve been here before. I know what this feels like. I recognize what the unfortunate state looks like. Foggy as it might be, I can see the road ahead because it&rsquo;s the one I walk every time I make anything. This unfortunate, halfway state is exactly that, halfway. Maybe a little more or less than halfway, but still, not the start or the end.&nbsp;I will do some more work on this painting, and the story that goes with it. Both are in a similar state. They will get better. At some point they will be &lsquo;done&rsquo;. That point isn&rsquo;t now, but that&rsquo;s okay.&nbsp;Artists should get used to showing off their process and their half-done work. The more you do it, the less scary it is. Being unafraid of the process of making things is probably the biggest hurdle an artist will ever have to leap.Show off your bad work. Your stuff that is half done and mushy. Your thoughts half formed and half finished. Get used to working through that and improving them. This is what your creations look like today, just imagine how good they could look tomorrow.&nbsp;" />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -498,6 +523,12 @@
   
   
 
+  <!-- CDN URL -->
+  
+
+  <!-- Add image path -->
+  
+
   
     
       
@@ -506,74 +537,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -611,14 +644,6 @@
   
 
   
-
-
-
-
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
 
 
 
@@ -703,7 +728,7 @@
 
 <div class="post-content">
   <div class="blog-content">
-				<div class="paragraph"><span><span>This is a picture. I made this picture. This picture gives me anxiety.</span></span><br /><span></span></div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <img data-src="/uploads/published/image0d56b.jpg?1632762294" alt="Picture" style="width:213;max-width:100%" data-proofer-ignore> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div class="paragraph">There is a state that all drawings and paintings go through that can be best classified as &ldquo;unfortunate&rdquo;. It&rsquo;s the state that makes an artist want to cover the paper so people looking over your shoulder can&rsquo;t see your mess. People who are not the artist might, rightly, think that this is as good as it will get and walk away disappointed. I have worked very long and very hard on myself to break the impulse to cover my paper.<br /><span></span>I&rsquo;ve been here before. Every time I draw, paint, write, model, texture, light, or animate anything, there is a point where the honest impulse would be to cover the paper. Hide the shame of a picture that is in that halfway and unfortunate state. Every time I hit that point, I feel it too. I think this picture, or story, or whatever, is always going to look like this and it will be terrible, and I am terrible, and why did I even try doing this thing in the first place.<br /><span></span>Like I said though, I&rsquo;ve been here before. I know what this feels like. I recognize what the unfortunate state looks like. Foggy as it might be, I can see the road ahead because it&rsquo;s the one I walk every time I make anything. This unfortunate, halfway state is exactly that, halfway. Maybe a little more or less than halfway, but still, not the start or the end.&nbsp;<br /><span></span>I will do some more work on this painting, and the story that goes with it. Both are in a similar state. They will get better. At some point they will be &lsquo;done&rsquo;. That point isn&rsquo;t now, but that&rsquo;s okay.&nbsp;<br /><span></span>Artists should get used to showing off their process and their half-done work. The more you do it, the less scary it is. Being unafraid of the process of making things is probably the biggest hurdle an artist will ever have to leap.<br /><span></span>Show off your bad work. Your stuff that is half done and mushy. Your thoughts half formed and half finished. Get used to working through that and improving them. This is what your creations look like today, just imagine how good they could look tomorrow.&nbsp;<br /><span></span></div>
+				<div class="paragraph"><span><span>This is a picture. I made this picture. This picture gives me anxiety.</span></span><br /><span></span></div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <a href="/uploads/published/image0d56b.jpg?1632762294" class="popup img-link "><img data-src="/uploads/published/image0d56b.jpg?1632762294" alt="Picture" style="width:213;max-width:100%" class="lazyload" data-proofer-ignore></a> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div class="paragraph">There is a state that all drawings and paintings go through that can be best classified as &ldquo;unfortunate&rdquo;. It&rsquo;s the state that makes an artist want to cover the paper so people looking over your shoulder can&rsquo;t see your mess. People who are not the artist might, rightly, think that this is as good as it will get and walk away disappointed. I have worked very long and very hard on myself to break the impulse to cover my paper.<br /><span></span>I&rsquo;ve been here before. Every time I draw, paint, write, model, texture, light, or animate anything, there is a point where the honest impulse would be to cover the paper. Hide the shame of a picture that is in that halfway and unfortunate state. Every time I hit that point, I feel it too. I think this picture, or story, or whatever, is always going to look like this and it will be terrible, and I am terrible, and why did I even try doing this thing in the first place.<br /><span></span>Like I said though, I&rsquo;ve been here before. I know what this feels like. I recognize what the unfortunate state looks like. Foggy as it might be, I can see the road ahead because it&rsquo;s the one I walk every time I make anything. This unfortunate, halfway state is exactly that, halfway. Maybe a little more or less than halfway, but still, not the start or the end.&nbsp;<br /><span></span>I will do some more work on this painting, and the story that goes with it. Both are in a similar state. They will get better. At some point they will be &lsquo;done&rsquo;. That point isn&rsquo;t now, but that&rsquo;s okay.&nbsp;<br /><span></span>Artists should get used to showing off their process and their half-done work. The more you do it, the less scary it is. Being unafraid of the process of making things is probably the biggest hurdle an artist will ever have to leap.<br /><span></span>Show off your bad work. Your stuff that is half done and mushy. Your thoughts half formed and half finished. Get used to working through that and improving them. This is what your creations look like today, just imagine how good they could look tomorrow.&nbsp;<br /><span></span></div>
 
 		</div>
 
@@ -754,19 +779,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=465+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F465%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=465%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F465%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=465+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F465%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=465%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F465%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F465%2F&text=465+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F465%2F&text=465%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9183,17 +9208,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9265,9 +9280,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9315,9 +9328,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9373,7 +9384,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

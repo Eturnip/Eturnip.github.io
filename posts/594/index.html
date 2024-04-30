@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="594" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="The 90&rsquo;s era arcade game that I have been working on for some time is finally starting to gel.The shaders that were very difficult to get right are nearly perfect.The pixel alignment script that took a while is now rock solid.The scale and angle of objects that didn&rsquo;t want to comfortably fit under an orthographic camera now seem to work properly.One of the last things I needed to nail down was how to consistently create textures that look and feel like sprite and tile pixel art. In common fashion, I&rsquo;m not creating them in the traditional way.People have been creating pixel art since the late 70s. Images that can be moved around a screen on discrete pixel unit at a time. That usually meant that they would draw the image out on graph paper, highlight specific colors if that was a capability of the hardware they were using, and then enter that &lsquo;map&rsquo; into their game as code. Or, if they were an artist and not a programmer, they would hand that sheet over to someone else to punch into the computer.That went on for quite a long time, well into the late 80&rsquo;s. Eventually computer aided art tools were developed that allowed artists to handle the art side independently. They would create the graphics and hand the finished file over to whoever was tasked with squeezing it into the game.A much cleaner workflow, but creating pixel art typically meant creating art a pixel at a time. Like a slightly less cumbersome light-bright.Gradually we got to the point where pressure sensitive tablets and screens using extremely sensitive electronic pens can pair with ridiculously sophisticated art software allow an artist to draw and paint as though they were using traditional media. It&rsquo;s actually sort of amazing.I&rsquo;m mostly using vector tools.Vectors drawing is like using mathematically defined shapes and regions to create art as opposed to scratching a mark onto a surface. The mark is easy to make, but it&rsquo;s mostly static. It stays how and where you put it. That can be very useful. Sometimes you just want to make a mark in a specific place in a specific color. But sometimes, you want to make a box, and then have that box remain scalable, rotateable, and variable forever. When I create using vector tools, I am defining the parameters of the image, parameters that I can change at almost any time.Creating pixel art with vectors lets you get away with a lot of strange things. Tiling and palette swaps are trivial. Creating variations on a single tile is not only easy, but kind of leans into how these vector packages work. It&rsquo;s playing to their strengths.I&rsquo;m sure that I&rsquo;m not the first person to do this. There are probably countless artists currently using this workflow for pixel art, but I haven&rsquo;t really seen it out there in the wild.Anyway, here, enjoy some parametrically created pixel art." />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -498,6 +523,12 @@
   
   
 
+  <!-- CDN URL -->
+  
+
+  <!-- Add image path -->
+  
+
   
     
       
@@ -506,74 +537,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -581,74 +614,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -656,74 +691,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -731,74 +768,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -836,14 +875,6 @@
   
 
   
-
-
-
-
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
 
 
 
@@ -928,7 +959,7 @@
 
 <div class="post-content">
   <div class="blog-content">
-				<div class="paragraph"><span><span>The 90&rsquo;s era arcade game that I have been working on for some time is finally starting to gel.</span></span><br /><span></span><span><span>The shaders that were very difficult to get right are nearly perfect.</span></span><br /><span></span><span><span>The pixel alignment script that took a while is now rock solid.</span></span><br /><span></span><span><span>The scale and angle of objects that didn&rsquo;t want to comfortably fit under an orthographic camera now seem to work properly.</span></span><br /><span></span><span><span>One of the last things I needed to nail down was how to consistently create textures that look and feel like sprite and tile pixel art. In common fashion, I&rsquo;m not creating them in the traditional way.</span></span><br /><span></span><span><span>People have been creating pixel art since the late 70s. Images that can be moved around a screen on discrete pixel unit at a time. That usually meant that they would draw the image out on graph paper, highlight specific colors if that was a capability of the hardware they were using, and then enter that &lsquo;map&rsquo; into their game as code. Or, if they were an artist and not a programmer, they would hand that sheet over to someone else to punch into the computer.</span></span><br /><span></span><span><span>That went on for quite a long time, well into the late 80&rsquo;s. Eventually computer aided art tools were developed that allowed artists to handle the art side independently. They would create the graphics and hand the finished file over to whoever was tasked with squeezing it into the game.</span></span><br /><span></span><span><span>A much cleaner workflow, but creating pixel art typically meant creating art a pixel at a time. Like a slightly less cumbersome light-bright.</span></span><br /><span></span><span><span>Gradually we got to the point where pressure sensitive tablets and screens using extremely sensitive electronic pens can pair with ridiculously sophisticated art software allow an artist to draw and paint as though they were using traditional media. It&rsquo;s actually sort of amazing.</span></span><br /><span></span><span><span>I&rsquo;m mostly using vector tools.</span></span><br /><span></span><span><span>Vectors drawing is like using mathematically defined shapes and regions to create art as opposed to scratching a mark onto a surface. The mark is easy to make, but it&rsquo;s mostly static. It stays how and where you put it. That can be very useful. Sometimes you just want to make a mark in a specific place in a specific color. But sometimes, you want to make a box, and then have that box remain scalable, rotateable, and variable forever. When I create using vector tools, I am defining the parameters of the image, parameters that I can change at almost any time.</span></span><br /><span></span><span><span>Creating pixel art with vectors lets you get away with a lot of strange things. Tiling and palette swaps are trivial. Creating variations on a single tile is not only easy, but kind of leans into how these vector packages work. It&rsquo;s playing to their strengths.</span></span><br /><span></span><span><span>I&rsquo;m sure that I&rsquo;m not the first person to do this. There are probably countless artists currently using this workflow for pixel art, but I haven&rsquo;t really seen it out there in the wild.</span></span><br /><span></span><span><span>Anyway, here, enjoy some parametrically created pixel art.</span></span><br /><span></span></div>  <div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;"> 	<div class="table-wrapper"><table class="wsite-multicol-table"> 		<tbody class="wsite-multicol-tbody"> 			<tr class="wsite-multicol-tr"> 				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;"> 					 						  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <img data-src="/uploads/published/balls3a8a.png?1711431215" alt="Picture" style="width:211;max-width:100%" data-proofer-ignore> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <img data-src="/uploads/published/screen02d05e.png?1711431294" alt="Picture" style="width:224;max-width:100%" data-proofer-ignore> </a> <div style="display:block;font-size:90%"></div> </div></div>   					 				</td>				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;"> 					 						  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <img data-src="/uploads/published/screen018d88.png?1711431249" alt="Picture" style="width:256;max-width:100%" data-proofer-ignore> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <img data-src="/uploads/published/screen03277a.png?1711431286" alt="Picture" style="width:188;max-width:100%" data-proofer-ignore> </a> <div style="display:block;font-size:90%"></div> </div></div>   					 				</td>			</tr> 		</tbody> 	</table></div> </div></div></div>
+				<div class="paragraph"><span><span>The 90&rsquo;s era arcade game that I have been working on for some time is finally starting to gel.</span></span><br /><span></span><span><span>The shaders that were very difficult to get right are nearly perfect.</span></span><br /><span></span><span><span>The pixel alignment script that took a while is now rock solid.</span></span><br /><span></span><span><span>The scale and angle of objects that didn&rsquo;t want to comfortably fit under an orthographic camera now seem to work properly.</span></span><br /><span></span><span><span>One of the last things I needed to nail down was how to consistently create textures that look and feel like sprite and tile pixel art. In common fashion, I&rsquo;m not creating them in the traditional way.</span></span><br /><span></span><span><span>People have been creating pixel art since the late 70s. Images that can be moved around a screen on discrete pixel unit at a time. That usually meant that they would draw the image out on graph paper, highlight specific colors if that was a capability of the hardware they were using, and then enter that &lsquo;map&rsquo; into their game as code. Or, if they were an artist and not a programmer, they would hand that sheet over to someone else to punch into the computer.</span></span><br /><span></span><span><span>That went on for quite a long time, well into the late 80&rsquo;s. Eventually computer aided art tools were developed that allowed artists to handle the art side independently. They would create the graphics and hand the finished file over to whoever was tasked with squeezing it into the game.</span></span><br /><span></span><span><span>A much cleaner workflow, but creating pixel art typically meant creating art a pixel at a time. Like a slightly less cumbersome light-bright.</span></span><br /><span></span><span><span>Gradually we got to the point where pressure sensitive tablets and screens using extremely sensitive electronic pens can pair with ridiculously sophisticated art software allow an artist to draw and paint as though they were using traditional media. It&rsquo;s actually sort of amazing.</span></span><br /><span></span><span><span>I&rsquo;m mostly using vector tools.</span></span><br /><span></span><span><span>Vectors drawing is like using mathematically defined shapes and regions to create art as opposed to scratching a mark onto a surface. The mark is easy to make, but it&rsquo;s mostly static. It stays how and where you put it. That can be very useful. Sometimes you just want to make a mark in a specific place in a specific color. But sometimes, you want to make a box, and then have that box remain scalable, rotateable, and variable forever. When I create using vector tools, I am defining the parameters of the image, parameters that I can change at almost any time.</span></span><br /><span></span><span><span>Creating pixel art with vectors lets you get away with a lot of strange things. Tiling and palette swaps are trivial. Creating variations on a single tile is not only easy, but kind of leans into how these vector packages work. It&rsquo;s playing to their strengths.</span></span><br /><span></span><span><span>I&rsquo;m sure that I&rsquo;m not the first person to do this. There are probably countless artists currently using this workflow for pixel art, but I haven&rsquo;t really seen it out there in the wild.</span></span><br /><span></span><span><span>Anyway, here, enjoy some parametrically created pixel art.</span></span><br /><span></span></div>  <div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;"> 	<div class="table-wrapper"><table class="wsite-multicol-table"> 		<tbody class="wsite-multicol-tbody"> 			<tr class="wsite-multicol-tr"> 				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;"> 					 						  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <a href="/uploads/published/balls3a8a.png?1711431215" class="popup img-link "><img data-src="/uploads/published/balls3a8a.png?1711431215" alt="Picture" style="width:211;max-width:100%" class="lazyload" data-proofer-ignore></a> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <a href="/uploads/published/screen02d05e.png?1711431294" class="popup img-link "><img data-src="/uploads/published/screen02d05e.png?1711431294" alt="Picture" style="width:224;max-width:100%" class="lazyload" data-proofer-ignore></a> </a> <div style="display:block;font-size:90%"></div> </div></div>   					 				</td>				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;"> 					 						  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <a href="/uploads/published/screen018d88.png?1711431249" class="popup img-link "><img data-src="/uploads/published/screen018d88.png?1711431249" alt="Picture" style="width:256;max-width:100%" class="lazyload" data-proofer-ignore></a> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <a href="/uploads/published/screen03277a.png?1711431286" class="popup img-link "><img data-src="/uploads/published/screen03277a.png?1711431286" alt="Picture" style="width:188;max-width:100%" class="lazyload" data-proofer-ignore></a> </a> <div style="display:block;font-size:90%"></div> </div></div>   					 				</td>			</tr> 		</tbody> 	</table></div> </div></div></div>
 
 		</div>
 
@@ -979,19 +1010,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=594+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F594%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=594%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F594%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=594+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F594%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=594%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F594%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F594%2F&text=594+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F594%2F&text=594%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9408,17 +9439,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9490,9 +9511,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9540,9 +9559,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9598,7 +9615,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

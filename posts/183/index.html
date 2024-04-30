@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="183﻿" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="My favorite superhero is Spider-Man. It may have been the late 60s cartoon series or the late 70s comic books, but either way, I was very young when I was first introduced to Spider-Man. Something about the character has always appealed to me. It took me a very long time put my finger on exactly what.Spider-Man is one of the most famous superheroes. Right up there with Batman, but very different from the usual superhero archetype. Spider-Man is powerful, fast, idealistic, cocky, smart, witty, and pure of heart. All the things you want in your heroes. He is also contemplative, unsure of himself, clumsy, intimidated, awkward, shy, and frightened. &nbsp;When Peter Parker puts on the Spider-Man costume, he is attempting to hide not only his face, but all of the things he is feeling. In the hands of the best writers, Spider-Man becomes the analogue of the messy internal turmoil that storms in everyone. His human frailties, more often than not, creep into his superhero persona. Both Peter Parker and Spider-Man&rsquo;s struggles are more internal than external. More so than Mysterio and Vulture, Spider-Man&rsquo;s villains are self doubt, and fear of failure. I sum it up this way. Spider-Man represents everything that you are, and everything that you want to be.We recently took a family trip to DisneyLand. My kids feel like they are getting a little too old to participate in the Jedi Academy show that they put on in the Tomorrowland area, but we had a little time the one day, so I headed over to watch. Either I never got too old, or I rounded the corner and no longer have any bearing on what I am too old for. If you haven&rsquo;t seen it, the setup is this. About 30 kids sign up to participate in each performance as Jedi Padawan. The previous show had the kids go through a quick training instruction delivered by the Jedi masters before they battled back Star Wars villains using their new lightsaber skills. Darth Vader would stomp around the stage and act menacing, the kids would fight him, win, and everyone had a good time.The show now, is a bit different. 30 or so children are marched in wearing Jedi robes accompanied by swelling John Williams music and led by charismatic performers playing the Jedi masters. That much is the same. This time though, they have created a simple story to explain the proceedings. All of the remaining Jedi are on the run from nefarious forces and they have come across the refuge of an ancient Jedi temple. To enter the temple they will have to face the manifestation of their fears. Spectres of evil Star Wars characters will emerge and they will use the same lightsaber fencing moves as in previous versions of the show to defeat them.If that was all that was changed, I wouldn&rsquo;t have really had any response to the show. It would be a simple pantomime set in the Star Wars mythos for young kids to enjoy. They have added one very important twist to the production. There is now a running commentary between the level headed Jedi master and his adept but excitable apprentice. The master keeps telling the kids that they are facing off against their fears and that it is their bravery, not their lightsaber skills that will get them through this trial. The apprentice, of course, struggles with this. During the final minutes of the show, the apprentice, an adult who has led these 30 children through their drills of blocking, dodging, and striking, lets her fear get the better of her. Her fears are portrayed by a legitimately intimidating Kylo Ren. It comes as no surprise to all the adults present, that with the help of all the children she overcomes her fear and succeeds by not fighting at all. The conflict was, after all, an internal one. This is standard moralistic fare. The type of stories we have all become accustomed to. It would be very easy to dismiss this simple play as children&#39;s entertainment, devoid of complexity and maturity. Simple or not, when I watched as thirty small hands reached forward to force push away the legitimately frightening menace on the stage, it made me well up a little. What would have been simply a fun half hour activity at a theme park, may shape some kids world view, if even in a small way. The same small ways that myths and stories have shaped us since people have been telling them. Out of thirty kids, comprised roughly half girls and half boys, I hope that at least one in that group found their Spider-Man.&#8203;" />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -529,14 +554,6 @@
 
 
 
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
-
-
-
-
 <!-- return -->
 
 <h1 data-toc-skip>183﻿</h1>
@@ -668,19 +685,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=183%EF%BB%BF+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F183%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=183%EF%BB%BF%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F183%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=183%EF%BB%BF+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F183%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=183%EF%BB%BF%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F183%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F183%2F&text=183%EF%BB%BF+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F183%2F&text=183%EF%BB%BF%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9097,17 +9114,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9179,9 +9186,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9229,9 +9234,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9287,7 +9290,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

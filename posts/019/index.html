@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="019" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="This week I was cleaning up some models, making a couple new models, and doing a UV unwrap on this character.&nbsp; That weird looking pelt in the bottom right is the UV layout There are about seven thousand tutorials on UV unwrapping available one google search away. I don&rsquo;t think it would be worth your time if I did another one. If you ask me in person I will gladly walk you through the process in my own inimitable monotone fashion. You will probably fall asleep before we get to seam placement. So here is a quick, high level overview of UV coordinates and UV unwrapping. If you are at all familiar with 3D modelling and UV layout, this will be pretty boring for you. Feel free to leave now, and I&rsquo;ll see you back here next week. Also you could just jump to the bottom where I explain why none of this will matter soon.A 3D model is just a collection of points in space. For this character, a little over 1300 of them. They all have 3 coordinates that describe where they sit in space relative to some arbitrary zero point, or origin. You have x position (Horizontal), y position (Vertical), and z position (Depth). Some folks like to swap the y and the z, since z axis rising up perpendicular to the plane of the earth is how it&rsquo;s usually done in aviation. Unless you&rsquo;re some sort of heathen, x sits on the horizontal where it belongs. Whatever orientation you go with you put three numbers in the x, y, and z slots for each point. From any 3 points in space you can create a triangle. Making a 3D model is really just managing these triangles. Those 1300 form the corners of 2600 triangles. You move them around, add and subtract them, until it looks like whatever you are making. Sort of like Michelangelo freeing the angel from the rock, but in reverse. And with at least twice as much computer power. So what is a UV then? Well after you line up all those triangles into something recognizable, you might want to paint it. Those points and triangles aren&rsquo;t really anything. They are groups of numbers in a computer. Kinda tough to paint on math. But what you can do is take all those points and triangles, cut them apart and lay them out flat. You know when you get a paper model in a book or on a cereal box or something? You have to cut it out and then fold the paper so the edges come together to make some sort of three dimensional shape. Laying out UV coordinates is the opposite of that. You take this perfectly good model, mark the seams where you want it to come apart and then spread all the pieces out flat. You arrange the model pieces in a totally separate set of coordinates. The model sits in xyz space and this new flattened version of it sits in UVW space. UVW - xyz... yep, clever as it sounds. Now that you have everything laid out flat, and organized you can create a texture, or image, that is also flat. The points on the UV coordinate system will match up with their corresponding points in xyz space. The texture will stick to the same places on the model as they do on the UV layout. You might say, &ldquo;hey wait, you said UVW. What&rsquo;s the W for?&rdquo;. Just like the xyz coordinates the UVW system also has a depth element to it. It lets you do fancy stuff, like fake reflections and procedural volume textures. Probably nothing you need to worry too much about. UV unwrapping is one of those tedious, but vital steps in setting up a model. There are a lot of tools that can help you speed up the process, but you will have to do it, and it probably will suck at least a little. It&rsquo;s all right though, we probably won&rsquo;t be doing it for much longer. There are a few new tools that will automatically generate UV coordinated and pack them in ways that are not very photoshop friendly. While you probably couldn&rsquo;t make heads or tails of these image maps, they are really not meant to be viewed in 2D. They are for painting 3D models in 3D applications, for 3D applications. There are a few issues yet, when dealing with real time environments like game engines, but they are already very common tools at use in CGI production and animation studios. It&rsquo;s really just a matter of time before the tools and the pipelines make their way into game development. When that happens, you probably won&rsquo;t have to deal with UV maps again. I think I will be just fine with that." />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -498,6 +523,12 @@
   
   
 
+  <!-- CDN URL -->
+  
+
+  <!-- Add image path -->
+  
+
   
     
       
@@ -506,74 +537,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -611,14 +644,6 @@
   
 
   
-
-
-
-
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
 
 
 
@@ -703,7 +728,7 @@
 
 <div class="post-content">
   <div class="blog-content">
-				<div class="paragraph" style="text-align:left;">This week I was cleaning up some models, making a couple new models, and doing a UV unwrap on this character.&nbsp;<br /></div>  <div><div class="wsite-image wsite-image-border-thin " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <img data-src="/uploads/6996067_orig.png" alt="Picture" style="width:100%;max-width:800px" data-proofer-ignore> </a> <div style="display:block;font-size:90%">That weird looking pelt in the bottom right is the UV layout</div> </div></div>  <div class="paragraph" style="text-align:justify;"><br />There are about seven thousand tutorials on UV unwrapping available one google search away. I don&rsquo;t think it would be worth your time if I did another one. If you ask me in person I will gladly walk you through the process in my own inimitable monotone fashion. You will probably fall asleep before we get to seam placement. So here is a quick, high level overview of UV coordinates and UV unwrapping. If you are at all familiar with 3D modelling and UV layout, this will be pretty boring for you. Feel free to leave now, and I&rsquo;ll see you back here next week. Also you could just jump to the bottom where I explain why none of this will matter soon.<br /><span style=""></span><br /><span style=""></span>A 3D model is just a collection of points in space. For this character, a little over 1300 of them. They all have 3 coordinates that describe where they sit in space relative to some arbitrary zero point, or origin. You have x position (Horizontal), y position (Vertical), and z position (Depth). Some folks like to swap the y and the z, since z axis rising up perpendicular to the plane of the earth is how it&rsquo;s usually done in aviation. Unless you&rsquo;re some sort of heathen, x sits on the horizontal where it belongs. Whatever orientation you go with you put three numbers in the x, y, and z slots for each point. From any 3 points in space you can create a triangle. Making a 3D model is really just managing these triangles. Those 1300 form the corners of 2600 triangles. You move them around, add and subtract them, until it looks like whatever you are making. Sort of like Michelangelo freeing the angel from the rock, but in reverse. And with at least twice as much computer power. <br /><span style=""></span><br /><span style=""></span>So what is a UV then? Well after you line up all those triangles into something recognizable, you might want to paint it. Those points and triangles aren&rsquo;t really anything. They are groups of numbers in a computer. Kinda tough to paint on math. But what you can do is take all those points and triangles, cut them apart and lay them out flat. You know when you get a paper model in a book or on a cereal box or something? You have to cut it out and then fold the paper so the edges come together to make some sort of three dimensional shape. Laying out UV coordinates is the opposite of that. You take this perfectly good model, mark the seams where you want it to come apart and then spread all the pieces out flat. You arrange the model pieces in a totally separate set of coordinates. The model sits in xyz space and this new flattened version of it sits in UVW space. UVW - xyz... yep, clever as it sounds. <br /><span style=""></span><br /><span style=""></span>Now that you have everything laid out flat, and organized you can create a texture, or image, that is also flat. The points on the UV coordinate system will match up with their corresponding points in xyz space. The texture will stick to the same places on the model as they do on the UV layout. <br /><span style=""></span><br /><span style=""></span>You might say, &ldquo;hey wait, you said UVW. What&rsquo;s the W for?&rdquo;. Just like the xyz coordinates the UVW system also has a depth element to it. It lets you do fancy stuff, like fake reflections and procedural volume textures. Probably nothing you need to worry too much about. <br /><span style=""></span><br /><span style=""></span>UV unwrapping is one of those tedious, but vital steps in setting up a model. There are a lot of tools that can help you speed up the process, but you will have to do it, and it probably will suck at least a little. It&rsquo;s all right though, we probably won&rsquo;t be doing it for much longer. <br /><span style=""></span><br /><span style=""></span>There are a few new tools that will automatically generate UV coordinated and pack them in ways that are not very photoshop friendly. While you probably couldn&rsquo;t make heads or tails of these image maps, they are really not meant to be viewed in 2D. They are for painting 3D models in 3D applications, for 3D applications. There are a few issues yet, when dealing with real time environments like game engines, but they are already very common tools at use in CGI production and animation studios. It&rsquo;s really just a matter of time before the tools and the pipelines make their way into game development. When that happens, you probably won&rsquo;t have to deal with UV maps again. I think I will be just fine with that. <br /><br /></div>
+				<div class="paragraph" style="text-align:left;">This week I was cleaning up some models, making a couple new models, and doing a UV unwrap on this character.&nbsp;<br /></div>  <div><div class="wsite-image wsite-image-border-thin " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <a href="/uploads/6996067_orig.png" class="popup img-link "><img data-src="/uploads/6996067_orig.png" alt="Picture" style="width:100%;max-width:800px" class="lazyload" data-proofer-ignore></a> </a> <div style="display:block;font-size:90%">That weird looking pelt in the bottom right is the UV layout</div> </div></div>  <div class="paragraph" style="text-align:justify;"><br />There are about seven thousand tutorials on UV unwrapping available one google search away. I don&rsquo;t think it would be worth your time if I did another one. If you ask me in person I will gladly walk you through the process in my own inimitable monotone fashion. You will probably fall asleep before we get to seam placement. So here is a quick, high level overview of UV coordinates and UV unwrapping. If you are at all familiar with 3D modelling and UV layout, this will be pretty boring for you. Feel free to leave now, and I&rsquo;ll see you back here next week. Also you could just jump to the bottom where I explain why none of this will matter soon.<br /><span style=""></span><br /><span style=""></span>A 3D model is just a collection of points in space. For this character, a little over 1300 of them. They all have 3 coordinates that describe where they sit in space relative to some arbitrary zero point, or origin. You have x position (Horizontal), y position (Vertical), and z position (Depth). Some folks like to swap the y and the z, since z axis rising up perpendicular to the plane of the earth is how it&rsquo;s usually done in aviation. Unless you&rsquo;re some sort of heathen, x sits on the horizontal where it belongs. Whatever orientation you go with you put three numbers in the x, y, and z slots for each point. From any 3 points in space you can create a triangle. Making a 3D model is really just managing these triangles. Those 1300 form the corners of 2600 triangles. You move them around, add and subtract them, until it looks like whatever you are making. Sort of like Michelangelo freeing the angel from the rock, but in reverse. And with at least twice as much computer power. <br /><span style=""></span><br /><span style=""></span>So what is a UV then? Well after you line up all those triangles into something recognizable, you might want to paint it. Those points and triangles aren&rsquo;t really anything. They are groups of numbers in a computer. Kinda tough to paint on math. But what you can do is take all those points and triangles, cut them apart and lay them out flat. You know when you get a paper model in a book or on a cereal box or something? You have to cut it out and then fold the paper so the edges come together to make some sort of three dimensional shape. Laying out UV coordinates is the opposite of that. You take this perfectly good model, mark the seams where you want it to come apart and then spread all the pieces out flat. You arrange the model pieces in a totally separate set of coordinates. The model sits in xyz space and this new flattened version of it sits in UVW space. UVW - xyz... yep, clever as it sounds. <br /><span style=""></span><br /><span style=""></span>Now that you have everything laid out flat, and organized you can create a texture, or image, that is also flat. The points on the UV coordinate system will match up with their corresponding points in xyz space. The texture will stick to the same places on the model as they do on the UV layout. <br /><span style=""></span><br /><span style=""></span>You might say, &ldquo;hey wait, you said UVW. What&rsquo;s the W for?&rdquo;. Just like the xyz coordinates the UVW system also has a depth element to it. It lets you do fancy stuff, like fake reflections and procedural volume textures. Probably nothing you need to worry too much about. <br /><span style=""></span><br /><span style=""></span>UV unwrapping is one of those tedious, but vital steps in setting up a model. There are a lot of tools that can help you speed up the process, but you will have to do it, and it probably will suck at least a little. It&rsquo;s all right though, we probably won&rsquo;t be doing it for much longer. <br /><span style=""></span><br /><span style=""></span>There are a few new tools that will automatically generate UV coordinated and pack them in ways that are not very photoshop friendly. While you probably couldn&rsquo;t make heads or tails of these image maps, they are really not meant to be viewed in 2D. They are for painting 3D models in 3D applications, for 3D applications. There are a few issues yet, when dealing with real time environments like game engines, but they are already very common tools at use in CGI production and animation studios. It&rsquo;s really just a matter of time before the tools and the pipelines make their way into game development. When that happens, you probably won&rsquo;t have to deal with UV maps again. I think I will be just fine with that. <br /><br /></div>
 
 		</div>
 
@@ -754,19 +779,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=019+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F019%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=019%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F019%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=019+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F019%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=019%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F019%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F019%2F&text=019+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F019%2F&text=019%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9183,17 +9208,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9265,9 +9280,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9315,9 +9328,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9373,7 +9384,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="424" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="Best Games - Batman: The Video GameLook at this. Just look at it. Okay. You seen that. Now look at this. Did you take that in. Did you count how many colors are on screen. I did. The first screenshot has 8. There are 8 colors on the screen there. The second jumps it up all the way to 12. 12 colors. I suppose it&rsquo;s technically 13 since one of the values in the foreground elements is transparent. The rest of the game proceeds the same way.&nbsp;I&rsquo;m no expert on the capabilities of the Nintendo Entertainment System, but from what I can gather it would have been possible to have around 24 colors on screen at any one time. 25 if you&#39;re feeling squirrely. It might have even been possible to display more colors with some trickery, anywhere from the low 50&rsquo;s all the way up to 256. Most devs at the time could assemble a solid palette of 24 colors from a preselected range of 64. Not great, but not too shabby.&nbsp;When Sunsoft created Batman: The Video Game they looked at all of those available colors and just said &lsquo;Nah, 12 and one transparent value is fine&rdquo;. They were right.More striking than the extremely limited palette is the use of black. The overwhelming majority of every frame this game draws to the screen is black. Background tiles blend away naturally. Shadows are so deep they swallow up everything leaving only the faintest hints of distant Gotham lights. It&rsquo;s a bold choice. It feels very Batman.There were a lot of games around the time that Batman came out that used very limited color palettes and spare background graphics. The NES, after all, was not a powerful machine even by the standards of the day. Most graphically constrained games on the hardware seem like compromises. For Batman, it seems like a choice.&nbsp;I realize that I haven&rsquo;t really talked about the gameplay. The game plays great. Extremely precise, extremely difficult. It&rsquo;s not a hectic game. Every movement, every jump, every batarang toss, is demanding and calculated. In that way the game also plays like Batman. Every button press has to be considered, accurate, and timed perfectly. I know that I finished the game at one point, but I don&rsquo;t think I ever made it past the 4th level without cheats. Games used to be really really hard.&nbsp;I think that Batman: The Video Game is one of the best examples of a limitation being turned into an asset. The game remains as beautiful today as when it came out, and I doubt anyone would ever notice that the color palette is so limited.&nbsp;It&rsquo;s a great game, but even based on looks alone, Batman: The Video Game is one of the best games.&nbsp;&#8203;" />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -498,6 +523,12 @@
   
   
 
+  <!-- CDN URL -->
+  
+
+  <!-- Add image path -->
+  
+
   
     
       
@@ -506,74 +537,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -581,74 +614,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -686,14 +721,6 @@
   
 
   
-
-
-
-
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
 
 
 
@@ -778,7 +805,7 @@
 
 <div class="post-content">
   <div class="blog-content">
-				<div class="paragraph"><span>Best Games - Batman: The Video Game</span><br /><br /><span>Look at this. Just look at it.</span></div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:right"> <a> <img data-src="/uploads/screenshot-2020-12-14-102343_orig.png" alt="Picture" style="width:auto;max-width:100%" data-proofer-ignore> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div class="paragraph"><span>Okay. You seen that. Now look at this.</span></div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <img data-src="/uploads/screenshot-2020-12-14-102630_orig.png" alt="Picture" style="width:auto;max-width:100%" data-proofer-ignore> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div class="paragraph"><span><span>Did you take that in. Did you count how many colors are on screen. I did. The first screenshot has 8. There are 8 colors on the screen there. The second jumps it up all the way to 12. 12 colors. I suppose it&rsquo;s technically 13 since one of the values in the foreground elements is transparent. The rest of the game proceeds the same way.&nbsp;</span></span><br /><span><span>I&rsquo;m no expert on the capabilities of the Nintendo Entertainment System, but from what I can gather it would have been possible to have around 24 colors on screen at any one time. 25 if you're feeling squirrely. It might have even been possible to display more colors with some trickery, anywhere from the low 50&rsquo;s all the way up to 256. Most devs at the time could assemble a solid palette of 24 colors from a preselected range of 64. Not great, but not too shabby.&nbsp;</span></span><br /><span><span>When Sunsoft created Batman: The Video Game they looked at all of those available colors and just said &lsquo;Nah, 12 and one transparent value is fine&rdquo;. They were right.</span></span><br /><span><span>More striking than the extremely limited palette is the use of black. The overwhelming majority of every frame this game draws to the screen is black. Background tiles blend away naturally. Shadows are so deep they swallow up everything leaving only the faintest hints of distant Gotham lights. It&rsquo;s a bold choice. It feels very Batman.</span></span><br /><span><span>There were a lot of games around the time that Batman came out that used very limited color palettes and spare background graphics. The NES, after all, was not a powerful machine even by the standards of the day. Most graphically constrained games on the hardware seem like compromises. For Batman, it seems like a choice.&nbsp;</span></span><br /><span><span>I realize that I haven&rsquo;t really talked about the gameplay. The game plays great. Extremely precise, extremely difficult. It&rsquo;s not a hectic game. Every movement, every jump, every batarang toss, is demanding and calculated. In that way the game also plays like Batman. Every button press has to be considered, accurate, and timed perfectly. I know that I finished the game at one point, but I don&rsquo;t think I ever made it past the 4th level without cheats. Games used to be really really hard.&nbsp;</span></span><br /><span><span>I think that Batman: The Video Game is one of the best examples of a limitation being turned into an asset. The game remains as beautiful today as when it came out, and I doubt anyone would ever notice that the color palette is so limited.&nbsp;</span></span><br /><span><span>It&rsquo;s a great game, but even based on looks alone, Batman: The Video Game is one of the best games.&nbsp;</span></span><br /><br />&#8203;</div>
+				<div class="paragraph"><span>Best Games - Batman: The Video Game</span><br /><br /><span>Look at this. Just look at it.</span></div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:right"> <a> <a href="/uploads/screenshot-2020-12-14-102343_orig.png" class="popup img-link "><img data-src="/uploads/screenshot-2020-12-14-102343_orig.png" alt="Picture" style="width:auto;max-width:100%" class="lazyload" data-proofer-ignore></a> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div class="paragraph"><span>Okay. You seen that. Now look at this.</span></div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <a href="/uploads/screenshot-2020-12-14-102630_orig.png" class="popup img-link "><img data-src="/uploads/screenshot-2020-12-14-102630_orig.png" alt="Picture" style="width:auto;max-width:100%" class="lazyload" data-proofer-ignore></a> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div class="paragraph"><span><span>Did you take that in. Did you count how many colors are on screen. I did. The first screenshot has 8. There are 8 colors on the screen there. The second jumps it up all the way to 12. 12 colors. I suppose it&rsquo;s technically 13 since one of the values in the foreground elements is transparent. The rest of the game proceeds the same way.&nbsp;</span></span><br /><span><span>I&rsquo;m no expert on the capabilities of the Nintendo Entertainment System, but from what I can gather it would have been possible to have around 24 colors on screen at any one time. 25 if you're feeling squirrely. It might have even been possible to display more colors with some trickery, anywhere from the low 50&rsquo;s all the way up to 256. Most devs at the time could assemble a solid palette of 24 colors from a preselected range of 64. Not great, but not too shabby.&nbsp;</span></span><br /><span><span>When Sunsoft created Batman: The Video Game they looked at all of those available colors and just said &lsquo;Nah, 12 and one transparent value is fine&rdquo;. They were right.</span></span><br /><span><span>More striking than the extremely limited palette is the use of black. The overwhelming majority of every frame this game draws to the screen is black. Background tiles blend away naturally. Shadows are so deep they swallow up everything leaving only the faintest hints of distant Gotham lights. It&rsquo;s a bold choice. It feels very Batman.</span></span><br /><span><span>There were a lot of games around the time that Batman came out that used very limited color palettes and spare background graphics. The NES, after all, was not a powerful machine even by the standards of the day. Most graphically constrained games on the hardware seem like compromises. For Batman, it seems like a choice.&nbsp;</span></span><br /><span><span>I realize that I haven&rsquo;t really talked about the gameplay. The game plays great. Extremely precise, extremely difficult. It&rsquo;s not a hectic game. Every movement, every jump, every batarang toss, is demanding and calculated. In that way the game also plays like Batman. Every button press has to be considered, accurate, and timed perfectly. I know that I finished the game at one point, but I don&rsquo;t think I ever made it past the 4th level without cheats. Games used to be really really hard.&nbsp;</span></span><br /><span><span>I think that Batman: The Video Game is one of the best examples of a limitation being turned into an asset. The game remains as beautiful today as when it came out, and I doubt anyone would ever notice that the color palette is so limited.&nbsp;</span></span><br /><span><span>It&rsquo;s a great game, but even based on looks alone, Batman: The Video Game is one of the best games.&nbsp;</span></span><br /><br />&#8203;</div>
 
 		</div>
 
@@ -829,19 +856,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=424+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F424%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=424%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F424%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=424+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F424%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=424%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F424%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F424%2F&text=424+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F424%2F&text=424%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9258,17 +9285,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9340,9 +9357,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9390,9 +9405,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9448,7 +9461,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

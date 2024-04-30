@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="411" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="I have played two games recently that only exist because of the terrible power of nostalgia. Ah nostalgia, come to bite us again have you?I&rsquo;m glad these games exist because they are both good, but nostalgia did them no favours in a couple of different ways. I&rsquo;ll get to that. First, the requisite old man recap.Side scrolling brawlers, or beat &lsquo;em up&rsquo;s, were extremely popular in arcades during the mid to late 80&rsquo;s. It was a genre that served both the player and the arcade owner so it is no real surprise that they became so dominant. For the player, they initially provide a lot of variety and action. You can usually play them cooperatively with a friend and, at least for the first few areas, you can play for quite a while on a single quarter. As the game wears on though they often become quite difficult and that means, if you want to continue, more quarters dropped. More profit for the owner of the arcade machine. The success of the brawler genre was almost assured.As home consoles became more capable, creating ports of the best arcade hits was just smart business. And so, beat &lsquo;em up&rsquo;s like kung fu master, double dragon, Teenage Mutant Ninja Turtles, and Final Fight made their way to living room tv&rsquo;s. Never underestimate the video game industries ability to sell the same thing to the same people over and over and over again.It wasn&rsquo;t long before developers started making original games in the genre specifically for consoles. Almost 30 years ago Streets of Rage came out for the Sega Genesis and Battletoads made its debut on the NES. Equally coincidental, both series have received brand new entries this year. Coincidental, or nostalgia runs on a very specific time cycle.I played through Streets of Rage 4 and I am most of the way through Battletoads. Both of these games are side scrolling brawlers, now a largely dead genre. Both of these games are slavish to this largely dead genre, but suffer for that in different ways. I think one of these games is much better than the other. Nostalgia has ways of muddying which one that is. I suppose it&rsquo;s worth noting that I played neither of these series much and have no particular affinity to either. I just like games where you can punch stuff.As I was playing Streets of Rage I found that I enjoyed the visual design and the music, I felt the game played fairly well and seemed very much &ldquo;one of those&rdquo;. A Beat &lsquo;em up. A good beat &lsquo;em up, but it did nothing particularly interesting either. All in all a fun couple of hours. But there is a reason this is a mostly dead genre.The beat &lsquo;em up works well for the arcade. It&rsquo;s fast, kinetic, easy to pick up, and short. All things that players and arcade owners want. When you have the game at home, with no risk of spending any extra quarters, the design and play cycle is a tad on the simplistic side. 30 years later this continues to be true.Battletoads on the other hand attempts to mix up the regular button mashy punching with all sorts of puzzles, mini-games, and comedic diversions. The previous Battletoads games contained sudden, radical difficulty spikes, so of course this one does too. Thankfully they took a more modern approach to these spikes and pretty much let you brute force them by never really punishing you for failure. As a result it ends up being a much better, more modern, game than Streets of Rage 4. Problem is, nostalgia is a real kick in the head.The Streets of Rage series, in its time, was much more highly regarded than Battletoads. Streets of Rage simply looked, sounded, and played better back when both game series were still young. If you look up reviews for the recent versions you will see a marked trend where reviewers heap praise on Streets of Rage 4 and are mostly lukewarm on Battletoads. Completely inverted from how I would evaluate them, but exactly as I would expect, nostalgia being what it is.So nostalgia created these new games, nostalgia kept them stuck in old, mostly abandoned conventions, and nostalgia distorted the public perception of them when they were done.&nbsp;Maybe it&rsquo;s time for everyone to admit that nostalgia really does this art form no favours and maybe, if we just frame past works as they really were rather than chasing how they made us feel, we could better appreciate the past, present, and future of this medium.But we won&rsquo;t. And I would absolutely play a new Legendary Wings game.&#8203;" />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -529,14 +554,6 @@
 
 
 
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
-
-
-
-
 <!-- return -->
 
 <h1 data-toc-skip>411</h1>
@@ -668,19 +685,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=411+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F411%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=411%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F411%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=411+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F411%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=411%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F411%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F411%2F&text=411+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F411%2F&text=411%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9097,17 +9114,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9179,9 +9186,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9229,9 +9234,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9287,7 +9290,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

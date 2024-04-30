@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="276" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="No new story or chapter this time. I&rsquo;m still writing (and rewriting) the next part and I swear there is a plan. Well like 80% of a plan. The other 20% I&rsquo;ll figure out when I get to it. Or I won&rsquo;t. I suppose that is an option. Anyway, I wanted to write a bit about animation. Over the past few months I have gone from knowing very little about Unity&rsquo;s Mecanim animation controller / state machine to, well, still knowing very little but it&rsquo;s an actionable very little. It&rsquo;s the very little that I can use to get some work done. There is a simple beauty in the way that mecanim works. It&rsquo;s very much geared toward game development but I think that any animator would benefit from using something similar. I&rsquo;m not going to give a mecanim tutorial or anything here, because first I don&rsquo;t think I really know enough about the minutia to do that, and second that sounds like a boring read. Instead, here is why I think this is a useful tool for every animators toolbox.There are a lot of requirements for a piece of animation. If it&rsquo;s a character it needs to engage the audience with a sense of internal life and movement with intent. If it&rsquo;s &nbsp;mechanical animation it needs to be physically consistent and purposeful. If it&rsquo;s fx animation it needs to buoy and enhance the scene. Cool. Enough with the artsy nonsense. There are some other things that animation needs to do. It needs to fit a certain motion into a finite amount of time, often a very short amount of time. It needs to seamlessly link up with the animation that precedes and follows it. It needs to conform to screen space and composition requirements. You can animate the most beautiful flowing motions and the most emotionally impactful subtlety, but if it doesn&rsquo;t work with everything else being presented it is bad animation.Games are interactive so they are difficult or impossible to pace in the way that a film or tv show would be. The player doesn&rsquo;t have to follow the script and storyboards. If they want to jump or run in a circle while important dialog is being delivered, they can and often will. A game has to allow for that. Tools like mecanim exist to account for this chaotic element. Mecanim breaks motions and character interactions down into a series of states. You can set it up so that certain motions can blend into other motions. If, for example, the player presses the jump button. You can have the character transition into a jump animation that includes a crouch, extend, arc through the air, and land absorbing the impact. The character then returns to a ready position and the player can press the jump button again. Realistic maybe, but in an action game that wouldn&rsquo;t feel very responsive. What if the character took a shoulder tackle mid way through the jump. Do you wait for your beautiful jump animation to finish before transitioning into the beautiful tackle reaction animation. Or do you break that jump up into separate chunks that can &nbsp;be transitioned into and out of at any point. Now when the player character is extending their legs and just about to leave the ground, you can have the shoulder tackle interrupt that animation in a convincing way. Using mecanim means thinking about you animations differently, less like a scripted performance and more like a set of possible performances. There are already some animators groaning that this steals the dynamism and pacing from their control. Bunk. At the core of what an animator does is solving the problem of making a thing that has no life seem to be alive. The problem remains the same whether solving it for a scripted, linear scene or a possibility space of potential scenes. Making the character or environment live from moment to moment is still the job. What working with a tool like mecanim does to the way you think about animation forces you to consider the technical. Managing time and space becomes much more important. Creating animations that can cleanly link from one to another at pretty much any point becomes important. The constraints of the tool become strengths. A nice character moment can&rsquo;t exist in only one scene, but must be available any time the player triggers it. It makes you as an animator consider character intention even in otherwise static moments. When motions are chopped up into slices of a handful of frames each, every moment becomes a time that you can express the internal intentions of a character or piece of animation.Ryu&rsquo;s idle animation in SFII is 4 frames. 4 frames. Every ounce of internality, every bit of intention, everything that tells you who that character is lives in 4 frames of animation. Using mecanim will force you learn just a little of how that is possible. &#8203;" />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -529,14 +554,6 @@
 
 
 
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
-
-
-
-
 <!-- return -->
 
 <h1 data-toc-skip>276</h1>
@@ -668,19 +685,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=276+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F276%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=276%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F276%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=276+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F276%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=276%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F276%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F276%2F&text=276+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F276%2F&text=276%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9097,17 +9114,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9179,9 +9186,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9229,9 +9234,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9287,7 +9290,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="268" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="I would post some of the later stuff, but that would read very disjointed, since it would be excerpts and scenes from different places in the story that I haven&#39;t tied together yet. Instead, here is some more refinement on the intro and the introductions of two of the main characters. Enjoy. As always comments and criticisms&nbsp;are very welcome especially at this early&nbsp;stage.&nbsp;Under the shady side of her favorite rock, a plump brown rabbit in a half doze twitched slightly. Her eyes snapped fully open and her ears perked. A coyote? No. A faint buzz, coming closer. A sound as benign as it was alien.Her eyes, now hyper alert, watched as a vast deep shadow flowed over the arid soil. She backed more tightly into the protective arch of rock and sat impossibly still. The shadow continued forward until it washed up and over her, without incident. Trailing tightly behind the shadow, just out of the rabbits view was a massive block of metal and glass and plastic. The great bulk drifted gently by on the other side of the rabbits favorite shady rock, faint electric hum barely audible below a light summer breeze. And then it was gone. The mammoth object floated over a small hill down toward a river valley leaving no trace of its passing. The rabbit relaxed and her eyelids sagged a few times before closing in an afternoon snooze.Inside the huge object, bundles of braided cord swung with the changing angle of the hillside. They slid off one another emitting all the cacophony of flowing beach sand. The electric hum of float plates permeated every bit of the structure, but still, those tones were almost imperceptible. A deep, grating, arrhythmic growl rose above it all. Kee lay awake staring at the ceiling. His eyes drifted over to the gently swaying blackout curtains covering the single window in his quarters. Nope. Not getting back to sleep. At least not with Eliza&rsquo;s snoring echoing around in this tin can.Kee swung his legs over the edge of his bunk and quickly retracted his bare feet from the biting cold of the metal floor. The float plate liquid cooling system ran right under his tiny room. Even in late summer the floor was continually frigid. Maybe he could pick up a rug in the next town. Nothing fancy, just a simple mat to make getting out of bed easier. He tossed on a loose shirt before gingerly placing his feet back down. It had been 3:30am when they had finally closed up the large workshop door and allowed the cart to drift off to its next location. What was it now? 1:13pm. Late, but this was a travel day. It wasn&rsquo;t like they had any work to do.Kee parted the tattered strips of cloth that were supposed to be his door. They emited the usual weak bleat that signified that he was not authorized to open this particular door before flapping aside feebly. If the door worked like it was supposed to the strips would adhere to one another creating a sound, insect, and person resistant barrier. As far as he knew, the door had never worked. Maybe that was something else he could look for in the next town, a working door, or at least a weaver who knew how to fix it. Maybe he could even get it coded to recognize him. Kee stretched the sleep out of his shoulders and back, before crossing the tiny galley, reflexively tapping the switch on the coffee machine on his way to the head. Finally ready to start the day and it was already half over. He filled his mug with coffee, snatched an apple from the stabilizer and ambled through the narrow hall leading to the workshop. He stepped into his boots barefoot and left them untied. Eliza would leave half eaten food on the counter and unwashed clothes in heaps on the floor, but she would tear a strip off you if work boots crossed her prescribed borders between the workshop, the hallway, and the living quarters. Kee plopped down, leaned back in his chair, and sat there for the next hour just watching the prairie landscape roll through the gaps in the louvered windows. &ldquo;Why didn&rsquo;t you wake me?&rdquo;Eliza leaned against the metal frame that joined the hall to the workshop. She already had a cup of coffee cradled in both hands, but hadn&rsquo;t bothered to put on pants. The question seemed to be directed as much to her cup as it was to Kee. &ldquo;I thought you might want to sleep a little late. The-&rdquo;Eliza snorted her contempt and cut him off. &ldquo;Did you forget we have to test that lift before we set up? Do you want to be under it when it goes?&rdquo;Kee rolled his eyes, but couldn&rsquo;t avoid glancing at the lift in the center of the room. He let his held breath out through his nose and shrugged a small resignation.&ldquo;And don&rsquo;t put your boots on the workbenches.&rdquo; &ldquo;Good morning, Liz.&rdquo; Kee called after her, and swung his legs back down heavily to the floor. Eliza was already across the hall and heading for the stairs leading up to her room. He could hear her grunted reply echo back to him through the metal structure." />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -529,14 +554,6 @@
 
 
 
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
-
-
-
-
 <!-- return -->
 
 <h1 data-toc-skip>268</h1>
@@ -668,19 +685,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=268+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F268%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=268%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F268%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=268+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F268%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=268%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F268%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F268%2F&text=268+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F268%2F&text=268%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9097,17 +9114,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9179,9 +9186,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9229,9 +9234,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9287,7 +9290,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

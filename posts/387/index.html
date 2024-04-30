@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="387" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="I was doing some more quick concept sketches. Here is a breakdown of this newest one. First off, before anything else, I watched a bunch of professional wrestling. Specifically a lot of &#39;off the top rope&#39; moves. I was looking for some dynamic reference and watching video is always better than looking at posed still images if you can do that. Peoples bodies do a lot of really strange stuff that no one would ever pose, but it looks great when you capture just the right frames out of a few videos and use those as your reference. With those references and some simple 3D models that I pose, sort of like the traditional artists wooden doll, I assemble a composition, and then draw it. Now that I have a simple line drawing, I have to turn them into characters. In the case of this game I am working on, the characters are all about costume. So I dress them up. In the process I try to fix some issues I had with the original line drawing. At this point I have erased a lot of construction lines and random sketches, but there are still a lot of lines that truck all over the place. I could refine them and erase the mess, Ink on another layer, or go straight to painting. I sort of split the difference here and refined a lot of edges, but since I will be painting over it I didn&#39;t ink all the lines or make nice clean line work. This is, after all, a concept sketch.&nbsp; Got some tighter lines in there so I pick a very limited palette and add some color. Is it done? Maybe, maybe not. The whole purpose of a concept sketch is to illustrate a concept. It&#39;s like writing a mission statement or broad outline. It only has to convey to the intended audience (in this case, me) what the finished product might feel like. I know this game is about a bunch of magical weirdos that roll around in balls and fight each other, but what is that exactly? What does that look and feel like? This is what I&#39;m trying to find. Every drawing brings that concept more and more into focus.&nbsp;" />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -498,6 +523,12 @@
   
   
 
+  <!-- CDN URL -->
+  
+
+  <!-- Add image path -->
+  
+
   
     
       
@@ -506,74 +537,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -581,74 +614,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -656,74 +691,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -731,74 +768,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -806,74 +845,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -911,14 +952,6 @@
   
 
   
-
-
-
-
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
 
 
 
@@ -1003,7 +1036,7 @@
 
 <div class="post-content">
   <div class="blog-content">
-				<div class="paragraph">I was doing some more quick concept sketches. Here is a breakdown of this newest one.<br /></div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:right"> <a> <img data-src="/uploads/paint_orig.png" alt="Picture" style="width:auto;max-width:100%" data-proofer-ignore> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div class="paragraph">First off, before anything else, I watched a bunch of professional wrestling. Specifically a lot of 'off the top rope' moves. I was looking for some dynamic reference and watching video is always better than looking at posed still images if you can do that. Peoples bodies do a lot of really strange stuff that no one would ever pose, but it looks great when you capture just the right frames out of a few videos and use those as your reference. With those references and some simple 3D models that I pose, sort of like the traditional artists wooden doll, I assemble a composition, and then draw it.</div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <img data-src="/uploads/export_orig.png" alt="Picture" style="width:auto;max-width:100%" data-proofer-ignore> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div class="paragraph">Now that I have a simple line drawing, I have to turn them into characters. In the case of this game I am working on, the characters are all about costume. So I dress them up. In the process I try to fix some issues I had with the original line drawing.<br /></div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <img data-src="/uploads/costume_orig.png" alt="Picture" style="width:auto;max-width:100%" data-proofer-ignore> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div class="paragraph">At this point I have erased a lot of construction lines and random sketches, but there are still a lot of lines that truck all over the place. I could refine them and erase the mess, Ink on another layer, or go straight to painting. I sort of split the difference here and refined a lot of edges, but since I will be painting over it I didn't ink all the lines or make nice clean line work. This is, after all, a concept sketch.&nbsp;<br /></div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <img data-src="/uploads/inks_orig.png" alt="Picture" style="width:auto;max-width:100%" data-proofer-ignore> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div class="paragraph">Got some tighter lines in there so I pick a very limited palette and add some color.</div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <img data-src="/uploads/paint_orig.png" alt="Picture" style="width:auto;max-width:100%" data-proofer-ignore> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div class="paragraph">Is it done? Maybe, maybe not. The whole purpose of a concept sketch is to illustrate a concept. It's like writing a mission statement or broad outline. It only has to convey to the intended audience (in this case, me) what the finished product might feel like. I know this game is about a bunch of magical weirdos that roll around in balls and fight each other, but what is that exactly? What does that look and feel like? This is what I'm trying to find. Every drawing brings that concept more and more into focus.&nbsp;</div>
+				<div class="paragraph">I was doing some more quick concept sketches. Here is a breakdown of this newest one.<br /></div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:right"> <a> <a href="/uploads/paint_orig.png" class="popup img-link "><img data-src="/uploads/paint_orig.png" alt="Picture" style="width:auto;max-width:100%" class="lazyload" data-proofer-ignore></a> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div class="paragraph">First off, before anything else, I watched a bunch of professional wrestling. Specifically a lot of 'off the top rope' moves. I was looking for some dynamic reference and watching video is always better than looking at posed still images if you can do that. Peoples bodies do a lot of really strange stuff that no one would ever pose, but it looks great when you capture just the right frames out of a few videos and use those as your reference. With those references and some simple 3D models that I pose, sort of like the traditional artists wooden doll, I assemble a composition, and then draw it.</div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <a href="/uploads/export_orig.png" class="popup img-link "><img data-src="/uploads/export_orig.png" alt="Picture" style="width:auto;max-width:100%" class="lazyload" data-proofer-ignore></a> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div class="paragraph">Now that I have a simple line drawing, I have to turn them into characters. In the case of this game I am working on, the characters are all about costume. So I dress them up. In the process I try to fix some issues I had with the original line drawing.<br /></div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <a href="/uploads/costume_orig.png" class="popup img-link "><img data-src="/uploads/costume_orig.png" alt="Picture" style="width:auto;max-width:100%" class="lazyload" data-proofer-ignore></a> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div class="paragraph">At this point I have erased a lot of construction lines and random sketches, but there are still a lot of lines that truck all over the place. I could refine them and erase the mess, Ink on another layer, or go straight to painting. I sort of split the difference here and refined a lot of edges, but since I will be painting over it I didn't ink all the lines or make nice clean line work. This is, after all, a concept sketch.&nbsp;<br /></div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <a href="/uploads/inks_orig.png" class="popup img-link "><img data-src="/uploads/inks_orig.png" alt="Picture" style="width:auto;max-width:100%" class="lazyload" data-proofer-ignore></a> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div class="paragraph">Got some tighter lines in there so I pick a very limited palette and add some color.</div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <a href="/uploads/paint_orig.png" class="popup img-link "><img data-src="/uploads/paint_orig.png" alt="Picture" style="width:auto;max-width:100%" class="lazyload" data-proofer-ignore></a> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div class="paragraph">Is it done? Maybe, maybe not. The whole purpose of a concept sketch is to illustrate a concept. It's like writing a mission statement or broad outline. It only has to convey to the intended audience (in this case, me) what the finished product might feel like. I know this game is about a bunch of magical weirdos that roll around in balls and fight each other, but what is that exactly? What does that look and feel like? This is what I'm trying to find. Every drawing brings that concept more and more into focus.&nbsp;</div>
 
 		</div>
 
@@ -1054,19 +1087,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=387+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F387%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=387%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F387%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=387+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F387%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=387%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F387%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F387%2F&text=387+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F387%2F&text=387%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9483,17 +9516,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9565,9 +9588,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9615,9 +9636,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9673,7 +9692,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

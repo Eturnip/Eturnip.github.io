@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="562" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="&#8203;Everything I have ever learned about logo design, I learned by tracing.&nbsp;I&rsquo;ve dealt with a lot of logos. I&rsquo;ve probably only designed a few. More than ten, less than twenty, maybe. Might be more, but not a ton more. The amount of logos I have dealt with, I couldn&rsquo;t even begin to count. And so very many of those I traced.When you work in advertising or sign design (which, I suppose, is usually advertising too), you will get handed a lot of artwork. Companies will have existing designs and logos that they want put on whatever it is they have you making for them. From single page leaflets to magazine layouts to dimensional signs to enormous carvings to vehicle wraps to television commercials to full motion video billboards. The mediums and modes that advertising artwork can take are uncountable and ever expanding. Someone will hand you some artwork made with one of those mediums in mind and ask you to make it work on any of the others. All too often, that will mean recreating the artwork for that particular medium. You can, and will, ask them if they have their artwork in all the formats that you need. Most of the time they will say &lsquo;no&rsquo;, and send you a grainy jpeg sized for a letterhead, but what they need is a banner, or something that can look nice on the side of a bus.Here is a common example of what I mean. Imagine that you are asked to make a set of stickers from that grainy jpeg. There are a lot of ways to make stickers.&nbsp;You can print stickers onto some sticky backed surface, like paper or vinyl. The printer that you use might be something akin to the inkjet or laser printers that you are accustomed to, but it will likely not use the same type of ink. Industrial printers are made for industrial applications, and every printer uses a slightly different sort of ink and even sets of inks for the same printer can be slightly different. At the very least, the color of the artwork might have to change so that it can be properly reproduced by the printer.&nbsp;You could also use a thermal transfer printer that uses cartridges of specific colored films. Very durable, but much difficult to use. Using a thermal printer usually means that the artwork will have to be in a vector format or converted to a vector format. If the artwork that you have is that grainy jpeg, it will have to be rebuilt.&nbsp;Often, a sticker can be simply cut from the appropriate color vinyl. No printing necessary. That also means that the artwork needs to be converted to vector. Machines that drive cutting knives have no idea about color or pixels. They want paths to follow. You will have to redraw that artwork as a vector, AKA trace that thing.Some artwork is pretty easy to trace. Others, not so much. But tracing, what has to be literally hundreds of logos, can teach you a lot about what makes a good logo. And what doesn&rsquo;t.You become accustomed to repeated shapes and recurrent arcs. Certain ways of composing and balancing.I think you could go to art school, study design, attend classes and lectures put on by the best designers in the world, and you still wouldn&rsquo;t learn as much as you would by cleaning up or adapting artwork. Tracing.Tracing artwork, especially using vector tools, requires that you break down the original design process. You have to reverse engineer it. You have to understand how it was made in the first place.Am I a master logo designer? No, probably not. But I did design this. I think it&rsquo;s pretty good. It&rsquo;s balanced. There is a flow to it. You could scale it up to the size of a banner fairly easily, or cut it out with a vinyl plotter or cnc router, minus the glow effects of course. It could be a sticker or printed on clothing. I&#39;m pretty certain it could be built from real neon or the led equivalent.The only way I get from shaky legged art student to designing that with some confidence, is by tracing. A lot.There is your permission. Go and trace some artwork, and improve your own skills in the process.&nbsp;" />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -498,6 +523,12 @@
   
   
 
+  <!-- CDN URL -->
+  
+
+  <!-- Add image path -->
+  
+
   
     
       
@@ -506,74 +537,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -611,14 +644,6 @@
   
 
   
-
-
-
-
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
 
 
 
@@ -703,7 +728,7 @@
 
 <div class="post-content">
   <div class="blog-content">
-				<div class="paragraph">&#8203;<span><span>Everything I have ever learned about logo design, I learned by tracing.&nbsp;</span></span><br /><span><span>I&rsquo;ve dealt with a lot of logos. I&rsquo;ve probably only designed a few. More than ten, less than twenty, maybe. Might be more, but not a ton more. The amount of logos I have dealt with, I couldn&rsquo;t even begin to count. And so very many of those I traced.</span></span><br /><span><span>When you work in advertising or sign design (which, I suppose, is usually advertising too), you will get handed a lot of artwork. Companies will have existing designs and logos that they want put on whatever it is they have you making for them. From single page leaflets to magazine layouts to dimensional signs to enormous carvings to vehicle wraps to television commercials to full motion video billboards. The mediums and modes that advertising artwork can take are uncountable and ever expanding. Someone will hand you some artwork made with one of those mediums in mind and ask you to make it work on any of the others. All too often, that will mean recreating the artwork for that particular medium. You can, and will, ask them if they have their artwork in all the formats that you need. Most of the time they will say &lsquo;no&rsquo;, and send you a grainy jpeg sized for a letterhead, but what they need is a banner, or something that can look nice on the side of a bus.</span></span><br /><span><span>Here is a common example of what I mean. Imagine that you are asked to make a set of stickers from that grainy jpeg. There are a lot of ways to make stickers.&nbsp;</span></span><br /><span><span>You can print stickers onto some sticky backed surface, like paper or vinyl. The printer that you use might be something akin to the inkjet or laser printers that you are accustomed to, but it will likely not use the same type of ink. Industrial printers are made for industrial applications, and every printer uses a slightly different sort of ink and even sets of inks for the same printer can be slightly different. At the very least, the color of the artwork might have to change so that it can be properly reproduced by the printer.&nbsp;</span></span><br /><span><span>You could also use a thermal transfer printer that uses cartridges of specific colored films. Very durable, but much difficult to use. Using a thermal printer usually means that the artwork will have to be in a vector format or converted to a vector format. If the artwork that you have is that grainy jpeg, it will have to be rebuilt.&nbsp;</span></span><br /><span><span>Often, a sticker can be simply cut from the appropriate color vinyl. No printing necessary. That also means that the artwork needs to be converted to vector. Machines that drive cutting knives have no idea about color or pixels. They want paths to follow. You will have to redraw that artwork as a vector, AKA trace that thing.</span></span><br /><span><span>Some artwork is pretty easy to trace. Others, not so much. But tracing, what has to be literally hundreds of logos, can teach you a lot about what makes a good logo. And what doesn&rsquo;t.</span></span><br /><span><span>You become accustomed to repeated shapes and recurrent arcs. Certain ways of composing and balancing.</span></span><br /><span><span>I think you could go to art school, study design, attend classes and lectures put on by the best designers in the world, and you still wouldn&rsquo;t learn as much as you would by cleaning up or adapting artwork. Tracing.</span></span><br /><span><span>Tracing artwork, especially using vector tools, requires that you break down the original design process. You have to reverse engineer it. You have to understand how it was made in the first place.</span></span><br /><span><span>Am I a master logo designer? No, probably not. But I did design this. I think it&rsquo;s pretty good.</span></span><br /></div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <img data-src="/uploads/screenshot-2023-08-14-114658_orig.png" alt="Picture" style="width:auto;max-width:100%" data-proofer-ignore> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div class="paragraph"><span>It&rsquo;s balanced. There is a flow to it. You could scale it up to the size of a banner fairly easily, or cut it out with a vinyl plotter or cnc router, minus the glow effects of course. It could be a sticker or printed on clothing. I'm pretty certain it could be built from real neon or the led equivalent.</span><br /><span>The only way I get from shaky legged art student to designing that with some confidence, is by tracing. A lot.</span><br /><span>There is your permission. Go and trace some artwork, and improve your own skills in the process.&nbsp;</span></div>
+				<div class="paragraph">&#8203;<span><span>Everything I have ever learned about logo design, I learned by tracing.&nbsp;</span></span><br /><span><span>I&rsquo;ve dealt with a lot of logos. I&rsquo;ve probably only designed a few. More than ten, less than twenty, maybe. Might be more, but not a ton more. The amount of logos I have dealt with, I couldn&rsquo;t even begin to count. And so very many of those I traced.</span></span><br /><span><span>When you work in advertising or sign design (which, I suppose, is usually advertising too), you will get handed a lot of artwork. Companies will have existing designs and logos that they want put on whatever it is they have you making for them. From single page leaflets to magazine layouts to dimensional signs to enormous carvings to vehicle wraps to television commercials to full motion video billboards. The mediums and modes that advertising artwork can take are uncountable and ever expanding. Someone will hand you some artwork made with one of those mediums in mind and ask you to make it work on any of the others. All too often, that will mean recreating the artwork for that particular medium. You can, and will, ask them if they have their artwork in all the formats that you need. Most of the time they will say &lsquo;no&rsquo;, and send you a grainy jpeg sized for a letterhead, but what they need is a banner, or something that can look nice on the side of a bus.</span></span><br /><span><span>Here is a common example of what I mean. Imagine that you are asked to make a set of stickers from that grainy jpeg. There are a lot of ways to make stickers.&nbsp;</span></span><br /><span><span>You can print stickers onto some sticky backed surface, like paper or vinyl. The printer that you use might be something akin to the inkjet or laser printers that you are accustomed to, but it will likely not use the same type of ink. Industrial printers are made for industrial applications, and every printer uses a slightly different sort of ink and even sets of inks for the same printer can be slightly different. At the very least, the color of the artwork might have to change so that it can be properly reproduced by the printer.&nbsp;</span></span><br /><span><span>You could also use a thermal transfer printer that uses cartridges of specific colored films. Very durable, but much difficult to use. Using a thermal printer usually means that the artwork will have to be in a vector format or converted to a vector format. If the artwork that you have is that grainy jpeg, it will have to be rebuilt.&nbsp;</span></span><br /><span><span>Often, a sticker can be simply cut from the appropriate color vinyl. No printing necessary. That also means that the artwork needs to be converted to vector. Machines that drive cutting knives have no idea about color or pixels. They want paths to follow. You will have to redraw that artwork as a vector, AKA trace that thing.</span></span><br /><span><span>Some artwork is pretty easy to trace. Others, not so much. But tracing, what has to be literally hundreds of logos, can teach you a lot about what makes a good logo. And what doesn&rsquo;t.</span></span><br /><span><span>You become accustomed to repeated shapes and recurrent arcs. Certain ways of composing and balancing.</span></span><br /><span><span>I think you could go to art school, study design, attend classes and lectures put on by the best designers in the world, and you still wouldn&rsquo;t learn as much as you would by cleaning up or adapting artwork. Tracing.</span></span><br /><span><span>Tracing artwork, especially using vector tools, requires that you break down the original design process. You have to reverse engineer it. You have to understand how it was made in the first place.</span></span><br /><span><span>Am I a master logo designer? No, probably not. But I did design this. I think it&rsquo;s pretty good.</span></span><br /></div>  <div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center"> <a> <a href="/uploads/screenshot-2023-08-14-114658_orig.png" class="popup img-link "><img data-src="/uploads/screenshot-2023-08-14-114658_orig.png" alt="Picture" style="width:auto;max-width:100%" class="lazyload" data-proofer-ignore></a> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div class="paragraph"><span>It&rsquo;s balanced. There is a flow to it. You could scale it up to the size of a banner fairly easily, or cut it out with a vinyl plotter or cnc router, minus the glow effects of course. It could be a sticker or printed on clothing. I'm pretty certain it could be built from real neon or the led equivalent.</span><br /><span>The only way I get from shaky legged art student to designing that with some confidence, is by tracing. A lot.</span><br /><span>There is your permission. Go and trace some artwork, and improve your own skills in the process.&nbsp;</span></div>
 
 		</div>
 
@@ -754,19 +779,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=562+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F562%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=562%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F562%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=562+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F562%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=562%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F562%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F562%2F&text=562+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F562%2F&text=562%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9183,17 +9208,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9265,9 +9280,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9315,9 +9328,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9373,7 +9384,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

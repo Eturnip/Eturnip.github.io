@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="085" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="I&#39;ve been watching a fair bit of E3 stuff this past week. During Sony&rsquo;s swing at the stage, the image of a sheepish looking Tim Schafer provided one of the only moments of light, but legitimate comedy. The crowd was filled with game industry veterans and industry press. As is the custom at public events, the joke was explained by a grinning Adam Boyes. If I had to guess, I would say that there was a pretty large group in that crowd, and an even larger group at home that didn&rsquo;t recognize Tim Schafer&rsquo;s face and actually did need the joke explained.As the audience of the game industry, it&rsquo;s not really our fault. We shouldn&rsquo;t really be expected to keep track of every developer, where they work, or what they have worked on before. Game development takes a team after all, and no single persons contribution should be considered more important than the rest. It&rsquo;s an egalitarian wonderland where ideas flow like water. Putting one person out there to represent the group wouldn&rsquo;t be fair to everyone else. Right? Right?You know what else takes a huge crew of talented people? Movies. I&rsquo;m thinking that most people could pick Steven Spielberg out of a crowd, and never once in his career did he work alone. Dozens, if not hundreds, of people work on his movies. But there you are, I just called them his movies. And so do you, when you go to watch them. When we say &ldquo;his movies&rdquo; it seems like we might be discounting the accomplishments of the other people who also worked on them. If you head over to Steven Spielberg&rsquo;s IMDB page you will notice something. The names Michael Kahn, Janusz Kaminski, John Williams, and a chorus of others appear on almost every one of &ldquo;his&rdquo; movies. This team of people working together is what makes a &ldquo;Steven Spielberg&rdquo; film. Unless you are a real film nut, or work in the film industry, you probably don&rsquo;t know or care about these other people, and you absolutely don&rsquo;t know or care what company distributed these movies. But you do know who Steven Spielberg is, and even though he is never actually on screen in his movies, you know what he looks like. How many people would recognize Shigeru Miyamoto on the street? How many people even recognise his name? We all should, since he&rsquo;s been making extremely successful games almost as long as Spielberg has been making movies. Here&rsquo;s the thing. People don&rsquo;t personally identify with corporations. They don&rsquo;t commit to memory groups of people. They remember single faces, individual names. If you see Paul McCartney, you don&rsquo;t think, hey there&rsquo;s the Beatles, you think, that&rsquo;s that guy from the Beatles. You recognize the man, not the group. recognition of that person brings with it some expectations. If you see the name Spielberg or McCartney or Miyamoto you should be able to expect a certain level of quality in the entertainment they produce. That their teams produce. You are more likely to watch, listen to, play, and buy things with those names attached. You might not know who Michael Kahn is, but if you go to Spielberg movies, he benefits. He gets to make another one.There have been very few game developers seen on the talk show circuit. I&rsquo;ve seen Markus Persson, Cliff Bleszinski, and, yes, Tim Schafer being interviewed on late night talk shows. And they were great. Just the same as any other guest, they came out funny and effusive. They pitched a game that they had worked hard on. The game they were proud of. They pitched it as the recognizable, smiling face of a an entire team. Around E3 time, when games are getting pitched and promoted, we should be seeing game developers on talk shows enough that they become recognizable faces to the general, game buying, public. They should have seen and heard Amy Hennig every time a new uncharted game rolled out, grew to associate her face with quality writing, and been poised to follow her to the new Star Wars game she is working on. It&rsquo;s recognition through repetition. If people know who she is and like her games, that team gets to make another one.The game industry is an echo chamber. If you are in the club, you get to know the people in the club, you get the inside jokes and the secret handshakes. It&rsquo;s insular and slightly defensive. An attitude that is inevitably self defeating. Maybe it&rsquo;s a difficult thing to really grasp, but there are people who like playing games, who will go out to a store to buy games, and they just might be excited enough about them to get to know the people who make them. They just don&rsquo;t want to have to learn the secret handshake. They really shouldn&rsquo;t have to." />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -529,14 +554,6 @@
 
 
 
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
-
-
-
-
 <!-- return -->
 
 <h1 data-toc-skip>085</h1>
@@ -668,19 +685,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=085+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F085%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=085%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F085%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=085+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F085%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=085%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F085%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F085%2F&text=085+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F085%2F&text=085%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9097,17 +9114,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9179,9 +9186,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9229,9 +9234,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9287,7 +9290,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

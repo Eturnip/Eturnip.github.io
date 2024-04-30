@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="152﻿" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="When I was a kid someone got me the Wonderful Waterful Robot. It was one of those water filled toys with a single button attached to a simple water pump. Press the button, and you squeeze water out of the pump reservoir and into the main chamber like a fully enclosed squirt gun. The movement of the water would float the 4 robot puzzle pieces around inside the chamber. The swirling was so chaotic that the toy appears to be just a random tempest of plastic objects. I loved it. &#8203;The object was to float the robot parts up and onto a plastic guide in the center of the playfield. To win you had to not only stack the parts in the proper order, but also in the correct orientation. The guide had a graduated width so that only the feet could fit in the foot position of the puzzle. This meant that if you just wanted to stack all the parts on the guide, there was only one possible order. No putting the pants above the head monkey business. Wonderful Waterful Robot was here to challenge you and it has no time for silliness. That became crystal clear when you finally went to put the head on the top. The head piece has no hole for the guide to fit into, and the guide stops just before the neck. If you want to put the head on and finish the puzzle you would need to gently float it up on top without shooting the water out so hard that you push the torso up and off the guide. It was almost cruelly difficult. I was probably 4 years old, and I must have completed that puzzle dozens of times.Here is the thing about the Wonderful Waterful Robot. Anyone who picked it up was compelled to mash that button way past the point of simply getting it. An adult who picks up a child&#39;s toy can usually figure out the boundaries of the experience fairly quickly, then they lose interest and put it back down. A child will play with anything, because every experience is novel to a 4 year old. An adult might take a bit more convincing. So why then did this dumb, random, kids robot puzzle keep everyone who attempted it hooked longer than a ball and cup. I think I have the answer to that, and it has something to do with the nature of fun.Okay so you will have to forgive my pedantry for a minute here while I break this down. I both despise and participate wholeheartedly in the traditional nerd pastime of quantifying and categorizing everything. I think that setting up concrete rules for intrinsically fluid concepts is probably harmful, both to the person setting the rules, and to the people they interact with. That said, Pedant Engines Engage!I&rsquo;m going to try to define fun. I think that maybe fun and joy are different things. Joy you experience, but fun you participate in. You can pass through joy, letting it drape over you, but fun is something that you enact on the world.Now I&rsquo;m really in it. Just when you thought I couldn&rsquo;t get more up my own butt, I&rsquo;m going to tell you what I think is going on in your head when you have fun. You can rest assured that I am not a psychologist, and have done little to no scientific research on this. That&rsquo;s how you know this is really grade A choice cut pedantry.Fun is identifying patterns. That&rsquo;s it. Nothing more to it. When we identify a pattern in what previously seemed like random noise, that experience, that feeling, that is what we call fun. The tiny rush you feel when you correctly predict the trajectory of a ball, move your hand to the right place at the right time and catch it mid flight. That might seem like very basic, predetermined mathematics. The ball will always follow this precise arc, over this precise distance, but the real world is lousy with variables. Is the wind blowing? How hard and in what direction? Is the ground even where you will place your foot? Are the aerodynamics of the ball consistent, or have they altered subtly? A few millimeters off in your prediction is the difference between a caught ball and a dropped one. Or maybe a broken nose. If you oscillate between unknowable chaos and recognizable, predictable patterns repeatedly, you have the formula for every sport ever played. Fun is a temporary, percussive sensation, but fun sustained can create joy.Nice theory, but what does that have to do with the Wonderful Waterful Robot? When anyone picked up that simple puzzle toy, they could never stop at pressing the button just once or twice. They would squeeze water through that thing again and again, varying the rhythm and power of each button press until they could get those 4 robot pieces to drift in just the way they wanted. Even releasing the button would cause some controllable turbulence. Soon the player would be able to select the piece they wanted to move and subtly direct its motion with deft control of the toys single button. The player began to predict the effect of forces that they could not see, on objects too diverse in size and shape to easily compute.Wonderful Waterful Robot is as pure an example of the human ability to find patterns in chaos as I have ever seen. It was simple and precise in a way that I doubt the creators had intended. People would pick it up, and spend several minutes fiddling with it, not because it was such a clever puzzle, but because it was fun." />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -498,6 +523,12 @@
   
   
 
+  <!-- CDN URL -->
+  
+
+  <!-- Add image path -->
+  
+
   
     
       
@@ -506,74 +537,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -611,14 +644,6 @@
   
 
   
-
-
-
-
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
 
 
 
@@ -703,7 +728,7 @@
 
 <div class="post-content">
   <div class="blog-content">
-				<div class="paragraph">When I was a kid someone got me the Wonderful Waterful Robot. It was one of those water filled toys with a single button attached to a simple water pump. Press the button, and you squeeze water out of the pump reservoir and into the main chamber like a fully enclosed squirt gun. The movement of the water would float the 4 robot puzzle pieces around inside the chamber. The swirling was so chaotic that the toy appears to be just a random tempest of plastic objects. I loved it.<br /></div>  <div><div class="wsite-image wsite-image-border-medium " style="padding-top:5px;padding-bottom:10px;margin-left:0;margin-right:10px;text-align:center"> <a> <img data-src="/uploads/9850527fe13.jpg?255" alt="Picture" style="width:255;max-width:100%" data-proofer-ignore> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div class="paragraph" style="text-align:left;">&#8203;The object was to float the robot parts up and onto a plastic guide in the center of the playfield. To win you had to not only stack the parts in the proper order, but also in the correct orientation. The guide had a graduated width so that only the feet could fit in the foot position of the puzzle. This meant that if you just wanted to stack all the parts on the guide, there was only one possible order. No putting the pants above the head monkey business. Wonderful Waterful Robot was here to challenge you and it has no time for silliness. That became crystal clear when you finally went to put the head on the top. The head piece has no hole for the guide to fit into, and the guide stops just before the neck. If you want to put the head on and finish the puzzle you would need to gently float it up on top without shooting the water out so hard that you push the torso up and off the guide. It was almost cruelly difficult. I was probably 4 years old, and I must have completed that puzzle dozens of times.<br /><br />Here is the thing about the Wonderful Waterful Robot. Anyone who picked it up was compelled to mash that button way past the point of simply getting it. An adult who picks up a child's toy can usually figure out the boundaries of the experience fairly quickly, then they lose interest and put it back down. A child will play with anything, because every experience is novel to a 4 year old. An adult might take a bit more convincing. So why then did this dumb, random, kids robot puzzle keep everyone who attempted it hooked longer than a ball and cup. I think I have the answer to that, and it has something to do with the nature of fun.<br /><br />Okay so you will have to forgive my pedantry for a minute here while I break this down. I both despise and participate wholeheartedly in the traditional nerd pastime of quantifying and categorizing everything. I think that setting up concrete rules for intrinsically fluid concepts is probably harmful, both to the person setting the rules, and to the people they interact with. That said, Pedant Engines Engage!<br /><br />I&rsquo;m going to try to define fun. I think that maybe fun and joy are different things. Joy you experience, but fun you participate in. You can pass through joy, letting it drape over you, but fun is something that you enact on the world.<br /><br />Now I&rsquo;m really in it. Just when you thought I couldn&rsquo;t get more up my own butt, I&rsquo;m going to tell you what I think is going on in your head when you have fun. You can rest assured that I am not a psychologist, and have done little to no scientific research on this. That&rsquo;s how you know this is really grade A choice cut pedantry.<br /><br />Fun is identifying patterns. That&rsquo;s it. Nothing more to it. When we identify a pattern in what previously seemed like random noise, that experience, that feeling, that is what we call fun. The tiny rush you feel when you correctly predict the trajectory of a ball, move your hand to the right place at the right time and catch it mid flight. That might seem like very basic, predetermined mathematics. The ball will always follow this precise arc, over this precise distance, but the real world is lousy with variables. Is the wind blowing? How hard and in what direction? Is the ground even where you will place your foot? Are the aerodynamics of the ball consistent, or have they altered subtly? A few millimeters off in your prediction is the difference between a caught ball and a dropped one. Or maybe a broken nose. If you oscillate between unknowable chaos and recognizable, predictable patterns repeatedly, you have the formula for every sport ever played. Fun is a temporary, percussive sensation, but fun sustained can create joy.<br /><br />Nice theory, but what does that have to do with the Wonderful Waterful Robot? When anyone picked up that simple puzzle toy, they could never stop at pressing the button just once or twice. They would squeeze water through that thing again and again, varying the rhythm and power of each button press until they could get those 4 robot pieces to drift in just the way they wanted. Even releasing the button would cause some controllable turbulence. Soon the player would be able to select the piece they wanted to move and subtly direct its motion with deft control of the toys single button. The player began to predict the effect of forces that they could not see, on objects too diverse in size and shape to easily compute.<br /><br />Wonderful Waterful Robot is as pure an example of the human ability to find patterns in chaos as I have ever seen. It was simple and precise in a way that I doubt the creators had intended. People would pick it up, and spend several minutes fiddling with it, not because it was such a clever puzzle, but because it was fun.<br /></div>
+				<div class="paragraph">When I was a kid someone got me the Wonderful Waterful Robot. It was one of those water filled toys with a single button attached to a simple water pump. Press the button, and you squeeze water out of the pump reservoir and into the main chamber like a fully enclosed squirt gun. The movement of the water would float the 4 robot puzzle pieces around inside the chamber. The swirling was so chaotic that the toy appears to be just a random tempest of plastic objects. I loved it.<br /></div>  <div><div class="wsite-image wsite-image-border-medium " style="padding-top:5px;padding-bottom:10px;margin-left:0;margin-right:10px;text-align:center"> <a> <a href="/uploads/9850527fe13.jpg?255" class="popup img-link "><img data-src="/uploads/9850527fe13.jpg?255" alt="Picture" style="width:255;max-width:100%" class="lazyload" data-proofer-ignore></a> </a> <div style="display:block;font-size:90%"></div> </div></div>  <div class="paragraph" style="text-align:left;">&#8203;The object was to float the robot parts up and onto a plastic guide in the center of the playfield. To win you had to not only stack the parts in the proper order, but also in the correct orientation. The guide had a graduated width so that only the feet could fit in the foot position of the puzzle. This meant that if you just wanted to stack all the parts on the guide, there was only one possible order. No putting the pants above the head monkey business. Wonderful Waterful Robot was here to challenge you and it has no time for silliness. That became crystal clear when you finally went to put the head on the top. The head piece has no hole for the guide to fit into, and the guide stops just before the neck. If you want to put the head on and finish the puzzle you would need to gently float it up on top without shooting the water out so hard that you push the torso up and off the guide. It was almost cruelly difficult. I was probably 4 years old, and I must have completed that puzzle dozens of times.<br /><br />Here is the thing about the Wonderful Waterful Robot. Anyone who picked it up was compelled to mash that button way past the point of simply getting it. An adult who picks up a child's toy can usually figure out the boundaries of the experience fairly quickly, then they lose interest and put it back down. A child will play with anything, because every experience is novel to a 4 year old. An adult might take a bit more convincing. So why then did this dumb, random, kids robot puzzle keep everyone who attempted it hooked longer than a ball and cup. I think I have the answer to that, and it has something to do with the nature of fun.<br /><br />Okay so you will have to forgive my pedantry for a minute here while I break this down. I both despise and participate wholeheartedly in the traditional nerd pastime of quantifying and categorizing everything. I think that setting up concrete rules for intrinsically fluid concepts is probably harmful, both to the person setting the rules, and to the people they interact with. That said, Pedant Engines Engage!<br /><br />I&rsquo;m going to try to define fun. I think that maybe fun and joy are different things. Joy you experience, but fun you participate in. You can pass through joy, letting it drape over you, but fun is something that you enact on the world.<br /><br />Now I&rsquo;m really in it. Just when you thought I couldn&rsquo;t get more up my own butt, I&rsquo;m going to tell you what I think is going on in your head when you have fun. You can rest assured that I am not a psychologist, and have done little to no scientific research on this. That&rsquo;s how you know this is really grade A choice cut pedantry.<br /><br />Fun is identifying patterns. That&rsquo;s it. Nothing more to it. When we identify a pattern in what previously seemed like random noise, that experience, that feeling, that is what we call fun. The tiny rush you feel when you correctly predict the trajectory of a ball, move your hand to the right place at the right time and catch it mid flight. That might seem like very basic, predetermined mathematics. The ball will always follow this precise arc, over this precise distance, but the real world is lousy with variables. Is the wind blowing? How hard and in what direction? Is the ground even where you will place your foot? Are the aerodynamics of the ball consistent, or have they altered subtly? A few millimeters off in your prediction is the difference between a caught ball and a dropped one. Or maybe a broken nose. If you oscillate between unknowable chaos and recognizable, predictable patterns repeatedly, you have the formula for every sport ever played. Fun is a temporary, percussive sensation, but fun sustained can create joy.<br /><br />Nice theory, but what does that have to do with the Wonderful Waterful Robot? When anyone picked up that simple puzzle toy, they could never stop at pressing the button just once or twice. They would squeeze water through that thing again and again, varying the rhythm and power of each button press until they could get those 4 robot pieces to drift in just the way they wanted. Even releasing the button would cause some controllable turbulence. Soon the player would be able to select the piece they wanted to move and subtly direct its motion with deft control of the toys single button. The player began to predict the effect of forces that they could not see, on objects too diverse in size and shape to easily compute.<br /><br />Wonderful Waterful Robot is as pure an example of the human ability to find patterns in chaos as I have ever seen. It was simple and precise in a way that I doubt the creators had intended. People would pick it up, and spend several minutes fiddling with it, not because it was such a clever puzzle, but because it was fun.<br /></div>
 
 		</div>
 
@@ -754,19 +779,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=152%EF%BB%BF+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F152%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=152%EF%BB%BF%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F152%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=152%EF%BB%BF+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F152%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=152%EF%BB%BF%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F152%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F152%2F&text=152%EF%BB%BF+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F152%2F&text=152%EF%BB%BF%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9183,17 +9208,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9265,9 +9280,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9315,9 +9328,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9373,7 +9384,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

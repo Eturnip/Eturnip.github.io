@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="073" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="I searched around to find the original illustrator files I used to cut all the pieces for Captain Joystick, but I seem to have backed them up so well I may need spelunking equipment to retrieve them. You will have to settle for photos of the finished product.When I built my first arcade stick, I knew that I would eventually build a full size, stand up arcade cabinet. Captain Joystick, doesn&rsquo;t look much like the typical arcade cabinet. That was absolutely intentional. I had a few criteria when I started on the project. I wanted to create a stand up arcade experience. I&rsquo;ve never been a huge fan of sit down cocktail cabinets, which is probably a product of my particular brand of nostalgia. I&rsquo;m sure all those people who prefer cocktail cabinets have good reasons, I was just never going to make one. I had no interest in hauling around a giant 200lb MDF monstrosity full of exposed wiring and spiders, so converting an old Mortal Kombat machine was out of the question. I don&rsquo;t care for the CRT experience and I have no love of scanlines. I have a pretty firm belief that the play of a game does not depend on a certain combination of outdated technologies. I sort of like the crisp, bright image of PacMan played on a 1080p LCD screen. It&rsquo;s old and new all at the same time.&nbsp; There were some arcade cabinets out there in the mid 90s called show piece cabinets or pedestal cabinets, where the screen and speakers were separated from the controls by a couple of feet. The controls were embedded in an oversized podium. Only the real big money making games were housed in these giant cases. Arcade operators must have hated them. You could probably fit 3 games in the same floor space. Computer hardware and displays change extremely quickly. The games I would be playing on this cabinet and their controls are cemented in time. The idea of having a control pedestal that I could hook up to any computer, game system, or display really appealed to me. If I was going to make a podium, and I was going to have a bunch of empty space underneath the controls, I figured I might as well make the best of it. I designed a stack of shelves inside the cabinet and put doors on both sides. For a while I had game consoles in there, but in the end it will likely be used to house a very small computer, and whatever junk I toss in. I designed all the milling files in illustrator and some router specific vector drawing software. I cut everything out of some &amp;frac12;&rdquo; sheets of MDF and a &#8539;&rdquo; thick sheet of acrylic. The acrylic is inlayed in the top of the control surface. The router table is accurate to a few thousandths of an inch, but MDF is notorious for expanding like a sponge. Until I sanded the edges, the acrylic fit way too tight. On one particularly hot summer afternoon when I was working on the cabinet the acrylic bowed up and made a loud popping noise as the tension was released. It scared the bejesus out of me. The same expansion caused the doors to go slightly concave after I milled off most of the surface. I managed to fix most of these minor issues, but there are a few things I would probably do differently if I were to make a new one. I designed the space invader on the front, the swoop on the doors and the engraved text, so that I could mill them all out on the table fairly quickly, as I only had one night on the router table to do most of the work. I had planned everything out so that all the parts would fit together like puzzle pieces. The cabinet should be self supporting and fairly strong with no adhesives or fasteners at all, but I made sure to glue it all together and put a few screws in there, just for peace of mind.&nbsp;The paint is just a basic gloss acrylic, and I did it in a bit of a rush. At some point, likely this summer, I will have to disassemble the thing and give it several nice gloss coats, sanding in between. I really wanted the finish to be as bright and smooth as the acrylic on top. Only the edge around the controls is finished to that level right now. It doesn&#39;t quite have that monolith quality I was going for.&nbsp;All the buttons and sticks shown in these pictures were taken from my old arcade stick. I have since removed them and put them all in a new stick that I built for my cousin as a Christmas gift. The new buttons and sticks arrived a while ago and they should be a little more future proof than these ones were.&nbsp;Now I&rsquo;m in the final stages of wiring up the controllers. I have to wait for some connectors I ordered to arrive, since no electronics supply store in this town is open past 5pm. It&rsquo;s a small delay really when you consider that the cabinet has moved from our old place to our new place, and occupied every floor of our home for extended periods, without even once being used to play a video game. A few more days won&rsquo;t hurt." />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -498,6 +523,12 @@
   
   
 
+  <!-- CDN URL -->
+  
+
+  <!-- Add image path -->
+  
+
   
     
       
@@ -506,111 +537,88 @@
 
     
     
-    
 
-    
     
 
     
     
+
+    
+    
+    
     
 
     
       
-      
 
       
-      
-
-      
-
-      
-    
       
       
 
       
-      
-
-      
-
-      
-    
-      
-      
-        
-      
-      
-        
-      
-      
-        
-      
-      
-        
-      
-      
-        
-      
-      
-        
-      
-      
-        
-      
-      
-        
-      
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-
-      
-      
-
-      
-
-      
-    
-      
-      
-        
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- add class to exist <a> tag -->
+      
+      
+      
+
+    
+
+    <!-- combine -->
     
 
   
@@ -618,74 +626,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -693,74 +703,76 @@
 
     
     
-    
 
-    
     
 
     
     
-    
 
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
-      
-      
-
-      
-      
-
-      
-
-      
     
 
     
       
 
-        <!-- Add CDN URL -->
-        
-
-        <!-- Add image path -->
-        
-
-        
-        
+      
+      
+      
 
       
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+    
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+      
 
       
 
     
 
-    <!-- Add SVG placehoder to prevent layout reflow -->
+    <!-- take out classes -->
+    
 
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
     
 
     <!-- Bypass the HTML-proofer test -->
     
 
+    <!-- make sure the `<img>` is wrapped by `<a>` -->
+    
+
+    
+      <!-- create the image wrapper -->
+      
+    
+
+    <!-- combine -->
     
 
   
@@ -798,14 +810,6 @@
   
 
   
-
-
-
-
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
 
 
 
@@ -890,14 +894,16 @@
 
 <div class="post-content">
   <div class="blog-content">
-				<span class="imgPusher" style="float:left;height:0px"></span><span style="z-index:10;position:relative;float:left;max-width:100%;;clear:left;margin-top:0px;*margin-top:0px"><a><img data-src="/uploads/1395697436.png" style="margin-top: 5px; margin-bottom: 10px; margin-left: 0px; margin-right: 10px; border-width:0;" alt="Picture" class="galleryImageBorder wsite-image" data-proofer-ignore></a><span style="display: block; font-size: 90%; margin-top: -10px; margin-bottom: 10px; text-align: center;" class="wsite-caption"></span></span> <div class="paragraph" style="text-align:left;display:block;">I searched around to find the original illustrator files I used to cut all the pieces for Captain Joystick, but I seem to have backed them up so well I may need spelunking equipment to retrieve them. You will have to settle for photos of the finished product.<br /><br />When I built my first arcade stick, I knew that I would eventually build a full size, stand up arcade cabinet. Captain Joystick, doesn&rsquo;t look much like the typical arcade cabinet. That was absolutely intentional. I had a few criteria when I started on the project. I wanted to create a stand up arcade experience. I&rsquo;ve never been a huge fan of sit down cocktail cabinets, which is probably a product of my particular brand of nostalgia. I&rsquo;m sure all those people who prefer cocktail cabinets have good reasons, I was just never going to make one. I had no interest in hauling around a giant 200lb MDF monstrosity full of exposed wiring and spiders, so converting an old Mortal Kombat machine was out of the question. I don&rsquo;t care for the CRT experience and I have no love of scanlines. I have a pretty firm belief that the play of a game does not depend on a certain combination of outdated technologies. I sort of like the crisp, bright image of PacMan played on a 1080p LCD screen. It&rsquo;s old and new all at the same time.&nbsp;</div> <hr style="width:100%;clear:both;visibility:hidden;" />  <div><div class="wsite-image wsite-image-border-thin " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+				<span class="imgPusher" style="float:left;height:0px"></span><span style="z-index:10;position:relative;float:left;max-width:100%;;clear:left;margin-top:0px;*margin-top:0px"><a
+        class="img-link shimmer"
+      ><img data-src="/uploads/1395697436.png" style="margin-top: 5px; margin-bottom: 10px; margin-left: 0px; margin-right: 10px; border-width:0;" alt="Picture"  class="lazyload" data-proofer-ignore></a><span style="display: block; font-size: 90%; margin-top: -10px; margin-bottom: 10px; text-align: center;" class="wsite-caption"></span></span> <div class="paragraph" style="text-align:left;display:block;">I searched around to find the original illustrator files I used to cut all the pieces for Captain Joystick, but I seem to have backed them up so well I may need spelunking equipment to retrieve them. You will have to settle for photos of the finished product.<br /><br />When I built my first arcade stick, I knew that I would eventually build a full size, stand up arcade cabinet. Captain Joystick, doesn&rsquo;t look much like the typical arcade cabinet. That was absolutely intentional. I had a few criteria when I started on the project. I wanted to create a stand up arcade experience. I&rsquo;ve never been a huge fan of sit down cocktail cabinets, which is probably a product of my particular brand of nostalgia. I&rsquo;m sure all those people who prefer cocktail cabinets have good reasons, I was just never going to make one. I had no interest in hauling around a giant 200lb MDF monstrosity full of exposed wiring and spiders, so converting an old Mortal Kombat machine was out of the question. I don&rsquo;t care for the CRT experience and I have no love of scanlines. I have a pretty firm belief that the play of a game does not depend on a certain combination of outdated technologies. I sort of like the crisp, bright image of PacMan played on a 1080p LCD screen. It&rsquo;s old and new all at the same time.&nbsp;</div> <hr style="width:100%;clear:both;visibility:hidden;" />  <div><div class="wsite-image wsite-image-border-thin " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
  <a>
- <img data-src="/uploads/5298760_orig.jpg" alt="Picture" style="width:100%;max-width:1066px" data-proofer-ignore>
+ <a href="/uploads/5298760_orig.jpg" class="popup img-link "><img data-src="/uploads/5298760_orig.jpg" alt="Picture" style="width:100%;max-width:1066px" class="lazyload" data-proofer-ignore></a>
  </a>
  <div style="display:block;font-size:90%"></div>
  </div></div>  <div class="paragraph" style="text-align:left;">There were some arcade cabinets out there in the mid 90s called show piece cabinets or pedestal cabinets, where the screen and speakers were separated from the controls by a couple of feet. The controls were embedded in an oversized podium. Only the real big money making games were housed in these giant cases. Arcade operators must have hated them. You could probably fit 3 games in the same floor space. <br /><br />Computer hardware and displays change extremely quickly. The games I would be playing on this cabinet and their controls are cemented in time. The idea of having a control pedestal that I could hook up to any computer, game system, or display really appealed to me. <br /><br />If I was going to make a podium, and I was going to have a bunch of empty space underneath the controls, I figured I might as well make the best of it. I designed a stack of shelves inside the cabinet and put doors on both sides. For a while I had game consoles in there, but in the end it will likely be used to house a very small computer, and whatever junk I toss in. <br /><br />I designed all the milling files in illustrator and some router specific vector drawing software. I cut everything out of some &frac12;&rdquo; sheets of MDF and a &#8539;&rdquo; thick sheet of acrylic. The acrylic is inlayed in the top of the control surface. The router table is accurate to a few thousandths of an inch, but MDF is notorious for expanding like a sponge. Until I sanded the edges, the acrylic fit way too tight. On one particularly hot summer afternoon when I was working on the cabinet the acrylic bowed up and made a loud popping noise as the tension was released. It scared the bejesus out of me. The same expansion caused the doors to go slightly concave after I milled off most of the surface. I managed to fix most of these minor issues, but there are a few things I would probably do differently if I were to make a new one. <br /><br />I designed the space invader on the front, the swoop on the doors and the engraved text, so that I could mill them all out on the table fairly quickly, as I only had one night on the router table to do most of the work. I had planned everything out so that all the parts would fit together like puzzle pieces. The cabinet should be self supporting and fairly strong with no adhesives or fasteners at all, but I made sure to glue it all together and put a few screws in there, just for peace of mind.&nbsp;<br /><br />The paint is just a basic gloss acrylic, and I did it in a bit of a rush. At some point, likely this summer, I will have to disassemble the thing and give it several nice gloss coats, sanding in between. I really wanted the finish to be as bright and smooth as the acrylic on top. Only the edge around the controls is finished to that level right now. It doesn't quite have that monolith quality I was going for.&nbsp;<br /><br />All the buttons and sticks shown in these pictures were taken from my old arcade stick. I have since removed them and put them all in a new stick that I built for my cousin as a Christmas gift. The new buttons and sticks arrived a while ago and they should be a little more future proof than these ones were.&nbsp;<br /><br />Now I&rsquo;m in the final stages of wiring up the controllers. I have to wait for some connectors I ordered to arrive, since no electronics supply store in this town is open past 5pm. It&rsquo;s a small delay really when you consider that the cabinet has moved from our old place to our new place, and occupied every floor of our home for extended periods, without even once being used to play a video game. A few more days won&rsquo;t hurt. <br /><br /></div>  <div><div class="wsite-image wsite-image-border-thin " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
  <a>
- <img data-src="/uploads/329385_orig.jpg" alt="Picture" style="width:100%;max-width:1066px" data-proofer-ignore>
+ <a href="/uploads/329385_orig.jpg" class="popup img-link "><img data-src="/uploads/329385_orig.jpg" alt="Picture" style="width:100%;max-width:1066px" class="lazyload" data-proofer-ignore></a>
  </a>
  <div style="display:block;font-size:90%"></div>
  </div></div>
@@ -951,19 +957,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=073+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F073%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=073%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F073%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=073+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F073%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=073%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F073%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F073%2F&text=073+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F073%2F&text=073%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9380,17 +9386,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9462,9 +9458,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9512,9 +9506,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9570,7 +9562,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

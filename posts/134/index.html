@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="134" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="Best Games - Street Fighter 2 Champion EditionWhen Street Fighter 2 came out I had no knowledge of the original. If I had seen the original Street Fighter at an arcade or a travelling fair or a convenience store, it made no impression on me. I did see it long after it&rsquo;s release in a restaurant in some small town in Manitoba. I remember it only because it was one of the deluxe cabinets with enormous analog pad contraptions rather than the 6 button layout most people have come to expect from Street Fighter games. The journey that brought that cabinet from Japan to small family restaurant in Canada must have been epic. One of the player 2 pads looked as though someone had been forcefully depressing it with a jackknife. I tried to play it and either I didn&rsquo;t know what I was doing or the kick pad on player one didn&rsquo;t work at all. Both cases seem likely. Also the game was terrible. This is the only machine of it&rsquo;s kind that I have ever come across, and by all accounts mine was not a unique experience.My first encounter with Street Fighter 2 was not all that different. There was a vanilla SF2 cabinet in my home town arcade and, for a while at least, not many people played it. There was another game in my home town at the time called Violence Fight. Violence Fight is awful. You play as one of 4 meaty stereotypes and you attempt to defeat the rest in hand to hand to foot to head combat. The characters all control like they are hip deep in a swamp and punches may or may not land depending on whether or not the machine felt like giving a crap. It&rsquo;s only redeeming features were that it had a character named Lick Joe and a large portion of the screen would be filled with the words GOON, GAGOON, and DAGOON when a fighter landed a particularly heavy blow. How and why that happened remains a mystery, as the game seems utterly hostile to skill or technique. Unintentional comedy aside, Violence Fight made me weary of any large character fighting game. Street Fighter 2 looked enough like Violence Fight that I was all too quick to sneer at it and walk away. I of course tried it, because I will try pretty much any game at least once. As soon as the enemy character launched magical fire from his hands, and it didn&rsquo;t seem to be a move I could replicate no matter what combination of buttons I mashed down, I wrote the game off as cheap and that was that. It wasn&rsquo;t very long after that first Street Fighter 2 game showed up that the same arcade got several more of the machines. This never happened. Why would an arcade want more than one of a game. All sat in a row no less. The two new ones had a different marquee as well. They were Street Fighter 2 Champion Edition machines. People were playing them. A lot. Somehow word had gone out through the ether that this was a good game. A game so good that a small arcade required 3 of the things to keep up with demand. Not only that, but no one had told me. I was completely out of the loop. I watched intently over the shoulder of several other kids as they contorted the joystick around and pounded on buttons. Every now and then one of them would launch that magic fire, or launch their character into the air, or spin across the screen in a dazzling bouquet of flailing arms and legs. I asked how? How did they know? How was this done? Someone had a photocopy from a magazine, EGM maybe? There seemed to be a bottomless bounty of secret skills and strategies in this game. For me, that changed everything.I started playing the SF2CE machine at the local 7-11. I would skate over there after work, after some event that kept me in town rather than heading back out to the farm, or just when I had nothing else to do. I would buy a liter of milk (because I was a doofus kid) and stand in my skates (see previous remark) occasionally playing as Ken or Blanka, but usually playing as Vega. Eventually they decided that they didn&rsquo;t want me wearing my skates in the store, so I would carry shoes in a backpack ready to switch so that I could go in and practice timing the charge up for Vega&rsquo;s roll attack. They kept that cabinet in there so long, and I played it so often, that I knew when another cabinet had different dipswitch settings. I have played an awful lot of Street Fighter and it&rsquo;s offshoots over the years. When they are played well, it is like high speed chess. They are the closest video games ever get to the combination of physical and mental&nbsp;synchronization&nbsp;required to play a sport. Street&nbsp;Fighter 2 Champion Edition is one of the best games ever." />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -529,14 +554,6 @@
 
 
 
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
-
-
-
-
 <!-- return -->
 
 <h1 data-toc-skip>134</h1>
@@ -668,19 +685,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=134+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F134%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=134%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F134%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=134+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F134%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=134%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F134%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F134%2F&text=134+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F134%2F&text=134%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9097,17 +9114,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9179,9 +9186,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9229,9 +9234,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9287,7 +9290,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

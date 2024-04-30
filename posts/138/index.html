@@ -13,20 +13,23 @@
   
 >
 
-  <!--
-  The Head
--->
+  <!-- The Head -->
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
   
-
     
 
     
-
   
 
   
@@ -35,7 +38,7 @@
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="138" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="We have one of those filter water pitchers. You know the ones. Clear and glossy plastic, you can put it in the fridge to keep your drinking water nice and chilly. We&rsquo;ve had it for quite a while. It carries the wear of years of daily use. It&rsquo;s fallen on the floor more than a few times, and has those unique features that only come from significant trauma. The most notable feature is that the top flap of the pitcher that you lever open with your thumb to refill it with water, that thing, it&rsquo;s thoroughly busted. The two tiny plastic pins that are meant to hold it in place have been long lost to some dark unexplored region. Under the oven most likely. We keep the flap on top of the pitcher to prevent debris or refrigerator flies or whatever imagined evils might enter our drinking water knowing full well that it&rsquo;s doing little good. The filter in the jug is designed precisely to remove such debris before it ever enters the drinkable water chamber. Still we keep the flap on there. Of course everyone who lives in this house is familiar with the pitcher and it&rsquo;s quirks. Without really thinking about it we all put our thumb or hand on the top of the flap when we pour. This keeps it in place and water comes out like it should. Any time a guest in our house tries to pour, they don&rsquo;t know about that particular protocol, and at least once during their visit the flap slides off the pitcher, and due to the precise angles and surface interactions involved, always ends up plunking down into their freshly poured glass of water. There is no outward evidence that the tiny pins are broken off, so there is no way for someone to know that their water will soon have a chunk of blue plastic floating in it. We here may be used to it, but this is still a poor user interface experience.I have been only using Blender for any and all 3d modelling tasks for the last few weeks. I had a comfort level with other tools that made most modelling tasks quick, but it was time to move on. Blender is being actively developed and tends to incorporate new technologies and workflows fairly quickly. The heavy hitters of 3D content creation tools, like Maya, ZBrush, and Houdini, will always get the newest technology first, but a lot of those technologies turn out to be weird gimmick tools that only a few people ever end up using. The core tools that actually see some use evolve slowly enough that even an open source project like Blender is able to keep up pretty well. The tools I was using are all pretty much stalled. They did a few things better than any other tools for a short while until everyone else caught up. I liked using them, but it was time to move on. Progress will not accommodate my comfort.I printed out list of hotkeys, kept the documentation open in another window, and proceeded to learn the ins and outs of Blender. More than once I found myself searching through tool specific forums for answers to issues I couldn&rsquo;t find documentation for. What I struck me as I was searching was the frequency of a specific kind of question and a specific kind of answer. The script goes like this. Q: I have used (some 3D program) and I am new to Blender. I was wondering how to do (some common 3D process)? or Where can I find (some common 3D tool)?A: Blender doesn&rsquo;t work like that. learn the hotkeys. Here is my problem with this thinking. Just because I know to hold the flap on my water pitcher with my thumb, doesn&rsquo;t mean that it isn&rsquo;t broken. It&rsquo;s broken because it doesn&rsquo;t follow the conventions that people who have dealt with water pitchers out there in the greater world are familiar with. Water pitcher design doesn&rsquo;t have to be identical, but if the behavior of a part of a well known system doesn&rsquo;t work in a predictable way, that user experience is not good. If I am not there to inform a user of my water pitcher that it functions in a way that is inconsistent with what they know of water pitchers, it is not the users fault or responsibility to puzzle that out.So my problem here, to be absolutely clear, is not with Blender. The program is ridiculously powerful, stuffed with features, and once you acclimatize, fairly easy to use. Blender is built on a foundation that in software terms is very very old. It suffers from the same issues that all old programs suffer from, in that features have been bolted to the side of it for so long that some parts of the program don&rsquo;t operate in ways consistent with the rest of the package. The interface uses more clicks and keypresses than it really needs to in places, but all this is so that existing users who are comfortable with the interface can continue to work from version to version with an easy learning curve. This is fair, but it doesn&rsquo;t mean that it isn&rsquo;t broken or that it can&rsquo;t be improved. The interface of Blender is far better than it used to be, but there are still a lot of places where it can be improved. I did come across a comment from one of the developers who said something to the effect that even minor changes to the interface are hard to do without breaking other parts of the program. It was at least a peripheral admission that he recognised a problem existed, but fixing the problem could take time. What&rsquo;s more, it might take some effort to come to any consensus on what the fix should be when it comes time to implement it. I hope that it is a move toward an interface that attempts to work consistently, and aims to teach new users how to navigate it, without the help of external documentation. On another note, I should probably just get a new water pitcher." />
@@ -77,7 +80,6 @@
 
 
   
-
     
       <link rel="preconnect" href="https://fonts.googleapis.com" >
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" >
@@ -93,7 +95,6 @@
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-
   
 
   <!-- GA -->
@@ -108,7 +109,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.css">
   
 
   
@@ -149,13 +150,12 @@
       let self = this;
 
       /* always follow the system prefers */
-      this.sysDarkPrefers.addEventListener("change", () => {
+      this.sysDarkPrefers.addEventListener('change', () => {
         if (self.hasMode) {
           if (self.isDarkMode) {
             if (!self.isSysDarkPrefer) {
               self.setDark();
             }
-
           } else {
             if (self.isSysDarkPrefer) {
               self.setLight();
@@ -166,9 +166,7 @@
         }
 
         self.notify();
-
       });
-
     } /* constructor() */
 
     get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); }
@@ -185,8 +183,7 @@
 
     /* get the current mode on screen */
     get modeStatus() {
-      if (this.isDarkMode
-        || (!this.hasMode && this.isSysDarkPrefer)) {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
         return ModeToggle.DARK_MODE;
       } else {
         return ModeToggle.LIGHT_MODE;
@@ -216,46 +213,41 @@
       }, "*");
     }
 
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
   } /* ModeToggle */
 
-  const toggle = new ModeToggle();
-
-  function flipMode() {
-    if (toggle.hasMode) {
-      if (toggle.isSysDarkPrefer) {
-        if (toggle.isLightMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setLight();
-        }
-
-      } else {
-        if (toggle.isDarkMode) {
-          toggle.clearMode();
-        } else {
-          toggle.setDark();
-        }
-      }
-
-    } else {
-      if (toggle.isSysDarkPrefer) {
-        toggle.setLight();
-      } else {
-        toggle.setDark();
-      }
-    }
-
-    toggle.notify();
-
-  } /* flipMode() */
-
+  const modeToggle = new ModeToggle();
 </script>
 
   
 </head>
 
 
-  <body data-spy="scroll" data-target="#toc" data-topbar-visible="true">
+  <body data-topbar-visible="true">
 
     <!--
   The Side Bar
@@ -343,7 +335,17 @@
 
       
       <a href="https://github.com/github_username" aria-label="github"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-github"></i>
       </a>
       
@@ -353,7 +355,17 @@
 
       
       <a href="https://twitter.com/twitter_username" aria-label="twitter"
-        target="_blank" rel="noopener">
+        
+
+        
+          target="_blank"
+          
+        
+
+        
+
+        rel="noopener noreferrer">
+
         <i class="fab fa-twitter"></i>
       </a>
       
@@ -362,9 +374,15 @@
       
 
       
-      <a href="
-          javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+      <a href="javascript:location.href = 'mailto:' + ['example','domain.com'].join('@')" aria-label="email"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-envelope"></i>
       </a>
       
@@ -374,7 +392,14 @@
 
       
       <a href="/feed.xml" aria-label="rss"
+        
+
+        
+
+        
+
         >
+
         <i class="fas fa-rss"></i>
       </a>
       
@@ -529,14 +554,6 @@
 
 
 
-<!-- Wrap prompt element of blockquote with the <div> tag -->
-
-
-
-
-
-
-
 <!-- return -->
 
 <h1 data-toc-skip>138</h1>
@@ -668,19 +685,19 @@
 
     
       
-        <a href="https://twitter.com/intent/tweet?text=138+-+Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F138%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://twitter.com/intent/tweet?text=138%20-%20Eturnip.com&url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F138%2F" data-toggle="tooltip" data-placement="top"
           title="Twitter" target="_blank" rel="noopener" aria-label="Twitter">
           <i class="fa-fw fab fa-twitter"></i>
         </a>
     
       
-        <a href="https://www.facebook.com/sharer/sharer.php?title=138+-+Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F138%2F" data-toggle="tooltip" data-placement="top"
+        <a href="https://www.facebook.com/sharer/sharer.php?title=138%20-%20Eturnip.com&u=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F138%2F" data-toggle="tooltip" data-placement="top"
           title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fa-fw fab fa-facebook-square"></i>
         </a>
     
       
-        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F138%2F&text=138+-+Eturnip.com" data-toggle="tooltip" data-placement="top"
+        <a href="https://t.me/share/url?url=http%3A%2F%2Flocalhost%3A4000%2Fposts%2F138%2F&text=138%20-%20Eturnip.com" data-toggle="tooltip" data-placement="top"
           title="Telegram" target="_blank" rel="noopener" aria-label="Telegram">
           <i class="fa-fw fab fa-telegram"></i>
         </a>
@@ -9097,17 +9114,7 @@
       </div>
 
       <div class="footer-right">
-        <p class="mb-0">
-
-          
-
-          
-
-          Powered by 
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-           with 
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-           theme.
+        <p class="mb-0">Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.
         </p>
       </div>
     </div>
@@ -9179,9 +9186,7 @@ SimpleJekyllSearch({
 </script>
 
 
-    <!--
-  JS selector for site.
--->
+    <!-- JS selector for site. -->
 
 <!-- layout specified -->
 
@@ -9229,9 +9234,7 @@ SimpleJekyllSearch({
 
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
 
@@ -9287,7 +9290,6 @@ SimpleJekyllSearch({
 
 
   <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script>
-
 
 
 

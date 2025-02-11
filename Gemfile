@@ -9,6 +9,7 @@ gem "html-proofer", "~> 5.0", group: :test
 group :jekyll_plugins do
   gem "jekyll-sitemap", "~> 1.4"
   gem "jekyll-feed"
+  
 end
 
 platforms :mingw, :x64_mingw, :mswin, :jruby do

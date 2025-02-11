@@ -26,10 +26,10 @@ description: >- # used by seo meta and the atom feed
 url: "https://eturnip.com"
 
 github:
-  username: github_username # change to your GitHub username
+  username: # github_username # change to your GitHub username
 
 twitter:
-  username: twitter_username # change to your Twitter username
+  username: # remove the Twitter username
 
 social:
   # Change to your full name.

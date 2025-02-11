@@ -24,7 +24,7 @@ GEM
     ethon (0.16.0)
       ffi (>= 1.15.0)
     eventmachine (1.2.7)
-    ffi (1.17.1-x64-mingw-ucrt)
+    ffi (1.17.1)
     fiber-annotation (0.2.0)
     fiber-local (1.1.0)
       fiber-storage
@@ -92,7 +92,9 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.10)
     mercenary (0.4.0)
     metrics (0.12.1)
-    nokogiri (1.18.2-x64-mingw-ucrt)
+    mini_portile2 (2.8.8)
+    nokogiri (1.18.2)
+      mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
@@ -133,6 +135,7 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
+  x86_64-linux
 
 DEPENDENCIES
   html-proofer (~> 5.0)

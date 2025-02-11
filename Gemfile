@@ -2,6 +2,8 @@
 
 source "https://rubygems.org"
 
+gem "github-pages", group: :jekyll_plugins
+
 gem "jekyll", "~> 4.2.0"
 
 gem "jekyll-theme-chirpy", "~> 5.3", ">= 5.3.2"

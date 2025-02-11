@@ -2,16 +2,12 @@
 
 source "https://rubygems.org"
 
-gem "github-pages", group: :jekyll_plugins
-
-#gem "jekyll", "~> 4.2.0"
-
+gem "jekyll", "~> 4.2.0"
 gem "jekyll-theme-chirpy", "~> 5.3", ">= 5.3.2"
-
-gem "html-proofer", "~> 5.0" , group: :test
+gem "html-proofer", "~> 5.0", group: :test
 
 group :jekyll_plugins do
-  gem "jekyll-sitemap"
+  gem "jekyll-sitemap", "~> 1.4"
   gem "jekyll-feed"
 end
 

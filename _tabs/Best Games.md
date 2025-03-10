@@ -1,6 +1,8 @@
 ---
-layout: tags
+layout: tag
+title: Best Games
 icon: fas fa-ranking-star
-#permalink: /tags/best-games/
-order: 2
+#order: 2
+tag: 
+    - Best_Games
 ---

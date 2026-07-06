@@ -28,31 +28,40 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.2 # Supports Node 24 target runtimes
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1 # Faster checkout: pulls only the latest commit instead of full history
 
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v5 # Upgraded from v4 to remove Node 20 warning
+        uses: actions/configure-pages@v5
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3
-          bundler-cache: true
+          bundler-cache: true # Caches installed gems automatically
+
+      - name: Cache Jekyll Build
+        uses: actions/cache@v4
+        with:
+          path: |
+            .jekyll-cache
+            _site
+          key: ${{ runner.os }}-jekyll-${{ hashFiles('**/Gemfile.lock') }}-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-jekyll-${{ hashFiles('**/Gemfile.lock') }}-
+            ${{ runner.os }}-jekyll-
 
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: "production"
 
-      - name: Test site
-        run: |
-          #bundle exec htmlproofer _site \
-          #  \-\-disable-external \
-          #  \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
-
       - name: Upload site artifact
-        uses: actions/upload-pages-artifact@v3 # Upgraded internally by GitHub to fallback cleanly
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "_site${{ steps.pages.outputs.base_path }}"
 
   deploy:
     environment:
